@@ -1,4 +1,4 @@
-layui.use(['form', 'layedit', 'laydate'], function () {
+layui.use(['form'], function () {
     var form = layui.form;
 
     //自定义验证规则
@@ -25,24 +25,15 @@ layui.use(['form', 'layedit', 'laydate'], function () {
 
     //监听提交
     form.on('submit(login)', function (data) {
-        var json = data.field
-
-        var pattern = /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
-        var sendJson;
-        if (!pattern.test(json.userName)) {
-            sendJson = {
-                "userName": json.userName,
-                "userPassword": json.userPassword
-            }
-        } else {
-            sendJson = {
-                "userPhone": json.userName,
-                "userPassword": json.userPassword
-            }
-        }
+        const sendJson = {
+            "uid": "147",
+            "sid": "WEB20190225",
+            "loginName": data.field.loginName,
+            "password": data.field.password
+        };
 
         $.ajax({
-            url: '${pageContext.request.contextPath}/user/login',
+            url: 'http://www.lemon.com/u/user/login',
             type: 'POST',
             data: sendJson,
             dataType: 'json',
@@ -50,8 +41,9 @@ layui.use(['form', 'layedit', 'laydate'], function () {
                 layer.load(0, {time: 1000});
             },
             success: function (data) {
-                layer.closeAll('loading')
-                if (data.success) {
+                layer.closeAll('loading');
+                if (data.code === 0) {
+                    $.cookie('token', data.data);
                     layer.msg("登陆成功，正在自动跳转");
                     setTimeout(function () {
                         // 刷新当前页面
@@ -59,17 +51,16 @@ layui.use(['form', 'layedit', 'laydate'], function () {
                         // (window).attr('location', '${pageContext.request.contextPath}/');
                     }, 1000);
                 } else {
-                    data.code == '1' ? layer.msg("你的账号已被停用，如有问题请联系管理员") : layer.msg(data.msg);
-
+                    layer.msg(data.msg);
                 }
             },
             error: function () {
-                layer.closeAll('loading')
+                layer.closeAll('loading');
                 layer.msg("系统繁忙");
             }
         });
 
-        return false;//阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        return false;
     });
 
 });
