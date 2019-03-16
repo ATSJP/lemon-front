@@ -1,18 +1,25 @@
+$(function () {
+    var loginName = $.cookie('loginName');
+    if(typeof(loginName) !== undefined){
+        $("#loginNameBox").text("hi,"+loginName);
+        $("#loginBtn").attr("hidden",true);
+    }
+})
+
 layui.use(['form'], function () {
     var form = layui.form;
 
-    //自定义验证规则
+    // 自定义验证规则
     form.verify({
         loginName: function (value) {
-            if (value.length < 5) {
-                return '标题至少得5个字符啊';
+            if (value.length < 0) {
+                return '用户不能为空';
             }
         }
         , password: [
             /^[\S]{6,12}$/
             , '密码必须6到12位，且不能出现空格'
         ]
-
     });
 
     //监听指定开关
@@ -25,6 +32,8 @@ layui.use(['form'], function () {
 
     //监听提交
     form.on('submit(login)', function (data) {
+        var loginName = data.field.loginName;
+        var password = data.field.password;
         const sendJson = {
             "uid": "147",
             "sid": "WEB20190225",
@@ -42,14 +51,10 @@ layui.use(['form'], function () {
             },
             success: function (data) {
                 layer.closeAll('loading');
-                if (data.code === 0) {
-                    $.cookie('token', data.data);
+                if (data.code === '0') {
                     layer.msg("登陆成功，正在自动跳转");
-                    setTimeout(function () {
-                        // 刷新当前页面
-                        window.parent.location.reload();
-                        // (window).attr('location', '${pageContext.request.contextPath}/');
-                    }, 1000);
+                    $.cookie('token', data.data);
+                    $.cookie('loginName', loginName);
                 } else {
                     layer.msg(data.msg);
                 }
