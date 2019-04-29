@@ -2,7 +2,7 @@
 <html>
 <head>
     <title data-vue-meta="true">B站宝贝_哔哩哔哩 (゜-゜)つロ
-    干杯~-bilibili</title>
+        干杯~-bilibili</title>
     <meta data-vue-meta="true" http-equiv="Content-Type" content="text/html" charset="utf-8">
     <meta data-vue-meta="true" name="renderer" content="webkit">
     <meta data-vue-meta="true" http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,12 +23,92 @@
     <meta data-vue-meta="true" itemprop="commentCount" content="1789">
     <link rel="stylesheet" href="//www.lemon.com/css/stardust-video.css">
     <link rel="stylesheet" href="//static.hdslb.com/phoenix/dist/css/comment.min.css">
+    <link rel="stylesheet" href="//www.lemon.com/css/head.css">
 </head>
 <body>
-<div class="z-top-container has-stardust" style="height:50px;box-shadow:0 1px 2px rgba(0,0,0,.1)"></div>
+<div class="z-top-container has-stardust" style="height:50px;box-shadow:0 1px 2px rgba(0,0,0,.1)">
+    <div class="bili-header-m report-wrap-module stardust-video">
+        <div class="nav-menu">
+            <div class="nav-mask"></div>
+            <div class="nav-wrapper clearfix">
+                <div class="nav-con fl">
+                    <ul>
+                        <li report-id="playpage_main" class="nav-item home">
+                            <a href="//www.bilibili.com" title="主站" class="t">
+                                <i class="header-iconfont header-icon-Navbar_logo"></i>
+                                主站
+                                <span class="header-iconfont header-icon-general_pullup_s drop"></span>
+                            </a>
+                        </li>
+                        <li report-id="Webtab_click_audio" class="nav-item mbili">
+                            <a href="//www.bilibili.com/audio/home/?type=10" target="_blank" title="来探索bilibili音乐的世界吧~"
+                               class="t">
+                                音频
+                            </a>
+                        </li>
+                        <li report-id="playpage_game" class="nav-item game">
+                            <a href="//game.bilibili.com" target="_blank" title="游戏中心" class="t">游戏中心</a>
+                        </li>
+                        <li report-id="playpage_live" class="nav-item live">
+                            <a href="//live.bilibili.com" target="_blank" title="直播"
+                               class="t">
+                                直播
+                            </a>
+                        </li>
+                        <li report-id="playpage_buy" class="nav-item buy">
+                            <a
+                                href="//show.bilibili.com/platform/home.html?msource=pc_web" target="_blank" title="会员购"
+                                class="t">会员购</a>
+                        </li>
+                        <li report-id="playpage_manga" class="nav-item manga"><a href="//manga.bilibili.com"
+                                                                                 target="_blank" title="漫画"
+                                                                                 class="t">漫画</a>
+                        </li>
+                    </ul>
+                </div>
+                <div report-id="playpage_contribution" class="up-load fr"><a
+                    href="//member.bilibili.com/v2#/upload/video/frame" target="_blank" class="u-link">
+                    投稿
+                </a><!----></div><!---->
+                <div class="nav-con fr">
+                    <ul class="fr">
+                        <li report-id="playpage_account" class="nav-item profile-info"><a href="//space.bilibili.com"
+                                                                                          target="_blank" class="t">
+                            <div class="i-face"><img src="//static.hdslb.com/images/member/noface.gif" class="face"><img
+                                class="pendant"><!----></div>
+                        </a><!----></li>
+                        <li report-id="big_tab_click" class="nav-item"><a href="//account.bilibili.com/account/big"
+                                                                          target="_blank" class="t">
+                            大会员<!----></a><!----></li>
+                        <li data-v-4d9bc88b="" class="nav-item" report-id="playpage_message"><a data-v-4d9bc88b=""
+                                                                                                href="//message.bilibili.com"
+                                                                                                target="_blank"
+                                                                                                title="消息" class="t">
+                            <!----> <!---->
+                            消息
+                        </a> <!----> <!----></li>
+                        <li data-v-637a89c0="" class="nav-item" report-id="playpage_dynamic"><a data-v-637a89c0=""
+                                                                                                href="//t.bilibili.com"
+                                                                                                target="_blank"
+                                                                                                class="t"><!---->
+                            <!---->
+                            动态</a> <!----></li>
+                        <li report-id="playpage_watchlater" class="nav-item"><a
+                            href="//www.bilibili.com/watchlater/#/list" target="_blank" class="t">稍后再看</a><!----></li>
+                        <li report-id="playpage_collection" class="nav-item"><a
+                            href="//space.bilibili.com/undefined/favlist" target="_blank" class="t">收藏</a><!----></li>
+                        <li report-id="playpage_history" class="nav-item"><a href="//www.bilibili.com/account/history"
+                                                                             target="_blank" class="t">历史</a><!---->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="video-page-app"></div>
 <div id="app" data-server-rendered="true">
-    <div class="v-wrap">
+    <div class="v-wrap" style="width: 80%">
         <div class="l-con">
             <div id="viewbox_report" class="video-info report-wrap-module report-scroll-module">
                 <h1 title="B站宝贝" class="video-title">
@@ -52,7 +132,7 @@
             <div id="playerWrap" class="player-wrap">
                 <div id="bofqi"></div>
                 <div>
-
+                    <video style="background-color: #000000" width="100%"></video>
                 </div>
             </div>
             <div id="arc_toolbar_report" class="video-toolbar report-wrap-module report-scroll-module">
