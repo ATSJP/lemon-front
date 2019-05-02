@@ -112,9 +112,33 @@ $(function () {
     return (w - main_w) / 2 + main_w + 10;
   };
 
+    /**
+     * 加载分类
+     */
+    $.ajax({
+        url: "http://www.lemon.com/u/category/tree",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            var html = "";
+            $.each(data.categoryDTOList, function (index, value) {
+                var head = "<li class=\"item\"><a href=\"#" + value.categoryId + "\" class=\"link\"><div class=\"num\"><i>0</i></div>" + value.categoryName + "</a>";
+                var body = "<ul class=\"nav-item__hover\">";
+                var headEnd = "</li>";
+                var bodyEnd = "</ul>";
+                $.each(value.subCategoryDTOList, function (index, value) {
+                    body += "<li><a href=\"#\"+ value.categoryId +\"\"><em>" + value.categoryName + "<i></i></em></a></li>";
+                });
+                html += head + body + bodyEnd + headEnd;
+            })
+
+            $(".nav-list").append(html)
+        }
+    })
+
 });
 
-;(function ($, window, document, undefined) {
+(function ($, window, document, undefined) {
 
   $.fn.slider = function (obj) {
     var $oSlider = obj;
