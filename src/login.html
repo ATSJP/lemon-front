@@ -2,8 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="/"/>
-    <title> 登录表单 </title>
-    <link rel="stylesheet" href="http://www.lemon.com/plugin/layui/css/layui.css"
+    <title> 登录 </title>
+    <link rel="stylesheet" href="static/plugin/layui/css/layui.css"
           type="text/css">
 </head>
 
@@ -22,7 +22,8 @@
         <div class="layui-form-item">
             <label class="layui-form-label">密&emsp;码</label>
             <div class="layui-input-block">
-                <input type="password" name="userPassword" required lay-verify="required" value="test" placeholder="请输入密码"
+                <input type="password" name="userPassword" required lay-verify="required" value="test"
+                       placeholder="请输入密码"
                        autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -35,10 +36,9 @@
         </div>
     </form>
 </div>
-<script src="http://www.lemon.com/plugin/layui/layui.js"
-        type="text/javascript"></script>
-<script src="http://www.lemon.com/js/jquery.min.js"></script>
-<script src="http://www.lemon.com/js/user.js"></script>
+<script src="static/plugin/layui/layui.js"></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/user.js"></script>
 <script>
     layui.use('form', function () {
         var form = layui.form;
@@ -65,6 +65,9 @@
                     if (data.code === 0) {
                         layer.msg("登陆成功");
                         setToken(data)
+                        setTimeout(function () {
+                            window.parent.location.reload();
+                        }, 500)
                     } else {
                         layer.msg(data.msg);
                     }

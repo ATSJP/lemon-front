@@ -116,7 +116,7 @@ $(function () {
      * 加载分类
      */
     $.ajax({
-        url: "http://www.lemon.com/u/category/tree",
+        url: "http://www.lemon.com/a/category/tree",
         type: "GET",
         dataType: "json",
         success: function (data) {
