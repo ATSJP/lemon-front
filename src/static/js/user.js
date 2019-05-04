@@ -48,6 +48,14 @@ $("#loginOut").click(function () {
                     removeToken();
                     initLoginUser();
                 }
+                if (data.code === 4) {
+                    layui.use('layer', function () {
+                        var layer = layui.layer;
+                        layer.msg('由于长时间未操作，你已退出');
+                    });
+                    removeToken();
+                    initLoginUser();
+                }
             }
         })
         layer.close(index);
