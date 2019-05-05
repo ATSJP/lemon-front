@@ -1,4 +1,56 @@
 /**
+ * 首页用
+ */
+function ajaxGetIndexVideoRank() {
+    /**
+     * 播放率
+     */
+    $.ajax({
+        url: "http://www.lemon.com/a/video/getVideoOrderBySortKey/0",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            if (data.code === 0) {
+                var videoDTOList = data.videoDTOList;
+                var html = "";
+                $.each(videoDTOList, function (index, value) {
+                    var videoDetailDTO = value.videoDetailDTO;
+                    html += " <li class=\"item\">\n" +
+                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + index + "</i>" + videoDetailDTO.videoName + "</a>\n" +
+                        "                        </li>";
+                })
+                $("#playNumRank").append(html);
+            } else {
+                layer.msg('系统异常')
+            }
+        }
+    })
+    /**
+     * 评价数
+     */
+    $.ajax({
+        url: "http://www.lemon.com/a/video/getVideoOrderBySortKey/1",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            if (data.code === 0) {
+                var videoDTOList = data.videoDTOList;
+                var html = "";
+                $.each(videoDTOList, function (index, value) {
+                    var videoDetailDTO = value.videoDetailDTO;
+                    html += " <li class=\"item\">\n" +
+                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + index + "</i>" + videoDetailDTO.videoName + "</a>\n" +
+                        "                        </li>";
+                })
+                $("#remarkNumRank").append(html);
+            } else {
+                layer.msg('系统异常')
+            }
+        }
+    })
+}
+
+/**
  * 分页查询
  *
  * @param categoryId 分类id
@@ -19,17 +71,17 @@ function ajaxGetVideoList(categoryId, pageIndex, view) {
                     var bizFileDTOList = value.bizFileDTOList
 
                     html += "<li class=\"item\">\n" +
-                        "                        <a href=\"#\" class=\"img-link\">\n" +
-                        "                            <img src=\"http://120.79.251.217:9002/uploads/big/"+ bizFileDTOList[0].fileName + bizFileDTOList[0].fileSuffix +"\"\n" +
+                        "                        <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
+                        "                            <img src=\"http://120.79.251.217:9002/uploads/big/" + bizFileDTOList[0].fileName + bizFileDTOList[0].fileSuffix + "\"\n" +
                         "                                 alt=\"#\">\n" +
                         "                            <span class=\"mask\"></span>\n" +
-                        "                            <span class=\"time\">"+ videoDetailDTO.time +"</span>\n" +
+                        "                            <span class=\"time\">" + videoDetailDTO.time + "</span>\n" +
                         "                        </a>\n" +
                         "                        <div class=\"img-info\">\n" +
-                        "                            <a href=\"#"+ videoDetailDTO.videoId +"\">"+ videoDetailDTO.videoName +"</a>\n" +
+                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
                         "                            <div class=\"btm\">\n" +
-                        "                                <div class=\"user\"><i></i>"+ videoDetailDTO.userName +"</div>\n" +
-                        "                                <div class=\"online\"><i></i>"+ videoDetailDTO.playNum +"</div>\n" +
+                        "                                <div class=\"user\"><i></i>" + videoDetailDTO.userName + "</div>\n" +
+                        "                                <div class=\"online\"><i></i>" + videoDetailDTO.playNum + "</div>\n" +
                         "                            </div>\n" +
                         "                        </div>\n" +
                         "                    </li>";
@@ -71,6 +123,41 @@ function ajaxGetCateList() {
 
             $(".nav-list").append(html1)
             $(".sideBar-list").append(toolbar + "<a href=\"#\"><i></i>排序</a>")
+        }
+    })
+}
+
+function ajaxGetVideoInfo(videoId) {
+    $.ajax({
+        url: "http://www.lemon.com/a/video/get/" + videoId,
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            if (data.code === 0) {
+                var videoDetailDTO = data.videoDTO.videoDetailDTO;
+                var bizFileDTOList = data.videoDTO.bizFileDTOList;
+                var categoryDTO = data.videoDTO.categoryDTO;
+                var remarkDTO = data.videoDTO.remarkDTO;
+
+                $(".video-title")[0].title = videoDetailDTO.videoName;
+                $(".tit").html(videoDetailDTO.videoName);
+                $(".view").html(videoDetailDTO.playNum + "播放 · ");
+                $(".dm").html(remarkDTO.length + "弹幕");
+                $(".username").html(videoDetailDTO.userName);
+
+                // 分类
+                $("#parentCate").html(categoryDTO.categoryName).attr('href', '//www.lemon.com/v/list.html?cid=' + categoryDTO.categoryId);
+                $("#childCate").html(categoryDTO.subCategoryDTOList[0].categoryName).attr('href', '//www.lemon.com/v/list.html?cid=' + categoryDTO.subCategoryDTOList[0].categoryId);
+
+                $("#createTime").html(videoDetailDTO.createTime);
+                $(".open").html(videoDetailDTO.videoContext);
+
+                // 评论
+
+            } else {
+                layer.msg('系统异常')
+            }
+
         }
     })
 }

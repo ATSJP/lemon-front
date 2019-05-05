@@ -109,7 +109,7 @@ $(function () {
     });
 
     function widthChanged(w) {
-        return (w - main_w) / 2 + main_w + 10;
+        return (w - main_w) / 2 + main_w + 150;
     };
 
 });
