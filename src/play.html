@@ -29,8 +29,8 @@
                     </ul>
                 </div>
                 <!--<div report-id="playpage_contribution" class="up-load fr"><a-->
-                    <!--href="//member.lemon.com/v2#/upload/video/frame" target="_blank" class="u-link">-->
-                    <!--投稿-->
+                <!--href="//member.lemon.com/v2#/upload/video/frame" target="_blank" class="u-link">-->
+                <!--投稿-->
                 <!--</a>&lt;!&ndash;&ndash;&gt;</div>&lt;!&ndash;&ndash;&gt;-->
                 <div class="nav-con fr">
                     <ul class="fr">
@@ -74,20 +74,13 @@
                 <div class="ops">
                     <span title="点赞数0" class="like">
                         <i class="van-icon-videodetails_like"></i>
-                            --
-                    </span>
-                    <span title="投硬币枚数" class="coin">
-                        <canvas width="34" height="34" class="ring-progress"
-                                style="width:34px;height:34px;left:-3px;top:-3px;">
-                        </canvas>
-                        <i class="van-icon-videodetails_throw"></i>
-                            --
+                            <!--&#45;&#45;-->
                     </span>
                     <span title="收藏人数" class="collect">
                         <canvas width="34" height="34" class="ring-progress"
                                 style="width:34px;height:34px;left:-3px;top:-3px;"></canvas>
                         <i class="van-icon-videodetails_collec"></i>
-                            --
+                            <!--&#45;&#45;-->
                     </span>
                     <span title="分享" class="share">
                         <i class="van-icon-videodetails_share"></i>
@@ -101,30 +94,34 @@
                 <div class="info open">
                 </div><!----><!----></div>
             <div id="v_tag" class="s_tag report-wrap-module report-scroll-module">
-                <ul class="tag-area clearfix">
-                    <li class="tag"><a
-                        href="//search.lemon.com/all?keyword=%E6%89%8B%E4%B9%A6&amp;from_source=video_tag"
-                        target="_blank">手书</a>
-                    </li>
-                    <a class="btn-add"><span
-                        class="one"></span><span class="two"></span></a><!----></ul>
+                <!--<ul class="tag-area clearfix">-->
+                    <!--<li class="tag"><a-->
+                        <!--href="//search.lemon.com/all?keyword=%E6%89%8B%E4%B9%A6&amp;from_source=video_tag"-->
+                        <!--target="_blank">手书</a>-->
+                    <!--</li>-->
+                    <!--<a class="btn-add"><span-->
+                        <!--class="one"></span><span class="two"></span></a>&lt;!&ndash;&ndash;&gt;</ul>-->
             </div><!---->
             <div id="comment" class="comment-m report-wrap-module report-scroll-module">
                 <div class="common">
-                    <div class="b-head"><span class="b-head-t results"></span><span class="b-head-t">评论</span><a
-                        href="" target="_blank"
-                        class="del-log">查看删除日志</a></div>
+                    <div class="b-head"><span class="b-head-t results"></span><span class="b-head-t">评论</span>
+                        <!--<a  href="" target="_blank"-->
+                        <!--class="del-log">查看删除日志</a>-->
+                    </div>
                     <div class="comment"></div>
                 </div>
             </div>
         </div><!-- 播放栏 end -->
         <div class="r-con">
             <div id="v_upinfo" class="up-info report-wrap-module report-scroll-module">
-                <div class="u-face has-pendant"><a href="//space.lemon.com/23371320" target="_blank" report-id="head"
-                                                   class="fa"></a></div>
+                <!--<div class="u-face has-pendant">-->
+                <!--<a href="" target="_blank" report-id="head"-->
+                <!--class="fa"></a>-->
+                <!--</div>-->
                 <div class="u-info">
                     <div class="name" style="line-height:20px;height:20px;">
-                        <a href="//space.lemon.com/23371320" target="_blank" report-id="name"
+                        作者：
+                        <a href="http://www.lemon.com/userInfo.html?uid=" target="_blank"
                            class="username is-vip"></a>
                         <a href="//message.lemon.com/#whisper/mid23371320" target="_blank" class="message">
                             <!--<i class="van-icon-videodetails_messag"></i>发消息-->
@@ -136,10 +133,10 @@
                 </div>
                 <div class="btn-panel">
                     <!--<div class="default-btn follow-btn b-gz not-follow">-->
-                        <!--<span>-->
-                        <!--<i class="van-icon-general_addto_s"></i>关注-->
-                            <!--<span>8.0万</span>-->
-                        <!--</span>-->
+                    <!--<span>-->
+                    <!--<i class="van-icon-general_addto_s"></i>关注-->
+                    <!--<span>8.0万</span>-->
+                    <!--</span>-->
                     <!--</div>-->
                 </div>
             </div>
@@ -208,7 +205,22 @@
     $(function () {
         var playId = getQueryString("playId");
         ajaxGetVideoInfo(playId);
+
+        // 定时弹幕
+        setInterval(function(){
+            var sval1 = Math.floor(Math.random() * 100);
+            var sval2 = Math.floor(Math.random() * 100);
+            newDanmu("发弹幕", sval1 + "%", sval2 + "%");
+        }, 900);
+
         // layer.msg('收藏成功', {offset:  ['80px', '1400px']});
+        $(".like").click(function () {
+            ajaxPutUp(playId)
+        })
+        $(".collect").click(function () {
+            ajaxPutCollect(playId)
+        })
+
     })
 </script>
 </body>

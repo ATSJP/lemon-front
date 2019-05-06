@@ -60,6 +60,8 @@ function openLoginWindow() {
 
 function removeToken(msg) {
     var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+    // var name = getCookie('name');
+    // if (name !== undefined && name !== '') {
     if (keys) {
         layui.use('layer', function () {
             var layer = layui.layer;

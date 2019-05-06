@@ -6,10 +6,10 @@ var videoObject = {
     loop: true, // 播放结束是否循环播放
     //autoplay: true, // 是否自动播放
     //duration: 500, // 设置视频总时间
-    cktrack: 'material/srt.srt', // 字幕文件
-    poster: 'material/poster.jpg', // 封面图片
+    cktrack: '', // 字幕文件
+    poster: 'http://120.79.251.217:9002/uploads/big/1c59de005b565e8d57dd00510314dd5d.png', // 封面图片
     preview: { // 预览图片
-        file: ['material/mydream_en1800_1010_01.png', 'material/mydream_en1800_1010_02.png'],
+        file: ['http://120.79.251.217:9002/uploads/big/1c59de005b565e8d57dd00510314dd5d.png', 'http://120.79.251.217:9002/uploads/big/1c59de005b565e8d57dd00510314dd5d.png'],
         scale: 2
     },
     config: '', // 指定配置函数
@@ -49,9 +49,9 @@ var videoObject = {
     //mobileCkControls:true,// 是否在移动端（包括ios）环境中显示控制栏
     //live:true,// 是否是直播视频，true=直播，false=点播
     video: [
-        ['http://img.ksbbs.com/asset/Mon_1703/05cacb4e02f9d9e.mp4', 'video/mp4', '标清', 0],
-        ['http://img.ksbbs.com/asset/Mon_1703/d0897b4e9ddd9a5.mp4', 'video/mp4', '高清', 0],
-        ['http://img.ksbbs.com/asset/Mon_1703/d30e02a5626c066.mp4', 'video/mp4', '超清', 0]
+        ['http://www.91jiexi.cn/test1.mp4', 'video/mp4', '标清', 0],
+        ['http://www.91jiexi.cn/test1.mp4', 'video/mp4', '高清', 0],
+        ['http://www.91jiexi.cn/test1.mp4', 'video/mp4', '超清', 0]
     ]
 };
 var player = new ckplayer(videoObject);
@@ -79,7 +79,6 @@ function loadedHandler() {
 }
 
 function errorHandler() {
-    console.log('出错')
     changeText('.playerstate', '状态：视频加载错误，停止执行其它动作，等待其它操作');
 }
 
@@ -138,12 +137,12 @@ function changeVideo(videoUrl) {
 }
 
 
-function newDanmu() {
+function newDanmu(text,x,y) {
     // 弹幕说明
     var danmuObj = {
         list: [{
             type: 'image', //定义元素类型：只有二种类型，image=使用图片，text=文本
-            file: 'material/logo.png', //图片地址
+            file: 'http://120.79.251.217:9002/uploads/big/54bd931e8705936f58067e5ae3396820.jpg', //图片地址
             radius: 30, //图片圆角弧度
             width: 30, //定义图片宽，必需要定义
             height: 30, //定义图片高，必需要定义
@@ -155,7 +154,7 @@ function newDanmu() {
             clickEvent: "link->http://"
         }, {
             type: 'text', //说明是文本
-            text: '演示弹幕内容，弹幕只支持普通文本，不支持HTML', //文本内容
+            text: text, //文本内容
             color: '0xFFDD00', //文本颜色
             size: 14, //文本字体大小，单位：px
             font: '"Microsoft YaHei", YaHei, "微软雅黑", SimHei,"\5FAE\8F6F\96C5\9ED1", "黑体",Arial', //文本字体
@@ -174,8 +173,8 @@ function newDanmu() {
             backRadius: 30, //文本的背景圆角弧度
             clickEvent: "actionScript->videoPlay"
         }],
-        x: '100%', //x轴坐标
-        y: "50%", //y轴坐标
+        x: x, //x轴坐标
+        y: y, //y轴坐标
         //position:[2,1,0],//位置[x轴对齐方式（0=左，1=中，2=右），y轴对齐方式（0=上，1=中，2=下），x轴偏移量（不填写或null则自动判断，第一个值为0=紧贴左边，1=中间对齐，2=贴合右边），y轴偏移量（不填写或null则自动判断，0=紧贴上方，1=中间对齐，2=紧贴下方）]
         alpha: 1,
         //backgroundColor:'#FFFFFF',

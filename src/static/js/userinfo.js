@@ -4,3 +4,7 @@ if (name !== undefined && name !== '') {
 } else {
     $("#h-name").text("未登录");
 }
+
+function ajaxGetInfo() {
+    
+}
