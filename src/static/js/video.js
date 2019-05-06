@@ -16,7 +16,7 @@ function ajaxGetIndexVideoRank() {
                 $.each(videoDTOList, function (index, value) {
                     var videoDetailDTO = value.videoDetailDTO;
                     html += " <li class=\"item\">\n" +
-                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + index + "</i>" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + (index+1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
                         "                        </li>";
                 })
                 $("#playNumRank").append(html);
@@ -39,7 +39,7 @@ function ajaxGetIndexVideoRank() {
                 $.each(videoDTOList, function (index, value) {
                     var videoDetailDTO = value.videoDetailDTO;
                     html += " <li class=\"item\">\n" +
-                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + index + "</i>" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">"+ (index+1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
                         "                        </li>";
                 })
                 $("#remarkNumRank").append(html);
@@ -51,7 +51,7 @@ function ajaxGetIndexVideoRank() {
 }
 
 /**
- * 分页查询
+ * 根据分类 分页查询视频list
  *
  * @param categoryId 分类id
  */
@@ -153,7 +153,7 @@ function ajaxGetVideoInfo(videoId) {
                 $(".open").html(videoDetailDTO.videoContext);
 
                 // 评论
-
+                newVideo("http://www.91jiexi.cn/test1.mp4");
             } else {
                 layer.msg('系统异常')
             }

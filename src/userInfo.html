@@ -1,0 +1,186 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>个人空间</title>
+    <link href="static/css/userinfohead.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/css/userinfobody.css">
+    <link rel="stylesheet" type="text/css" href="static/css/userInfo.css">
+</head>
+<body style="">
+
+<div class="bili-header-m report-wrap-module">
+    <div class="nav-menu">
+        <div class="nav-mask"></div>
+        <div class="nav-wrapper clearfix bili-wrapper">
+            <div class="nav-con fl">
+                <ul>
+                    <li class="nav-item home">
+                        <a href="/" title="主站" class="t">
+                            <i class="header-iconfont header-icon-bilibili-tv"></i>
+                            主站</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="app" class="owner">
+    <div class="h">
+        <div class="wrapper">
+            <div class="h-forbid" style="display: none;">
+                <div class="f-wrap"><i class="f-icon"></i><span class="f-txt">该账号封禁中</span></div>
+            </div>
+            <div class="h-inner" style="">
+                <div class="h-gradient"></div>
+                <div class="h-user">
+                    <div class=".h .h-inner clearfix">
+                        <div class="h-basic">
+                            <div>
+                                <span id="h-name"></span>
+                                <span id="h-ceritification" class="icon"></span>
+                                <span id="h-gender" class="icon gender"></span>
+                                <!--<a href="/" target="_blank" lvl="2"-->
+                                <!--class="h-level m-level"></a>-->
+                            </div>
+                            <div class="h-basic-spacing"><h4 title="" class="h-sign" style="display: none;">
+                            </h4><input id="h-sign" type="text" placeholder="编辑个性签名" maxlength="60"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="navigator" class="n">
+        <div class="wrapper">
+            <div class="n-inner clearfix">
+                <div class="n-tab-links">
+                    <a href="/userInfo.html"
+                       class="n-btn n-index n-fans n-404 router-link-exact-active router-link-active active">
+                        <span class="iconfont icon-ic_home"></span><span class="n-text">主页</span></a>
+                    <a href="/favlist" class="n-btn n-favlist">
+                        <span class="iconfont icon-ic_collect"></span>
+                        <span class="n-text">收藏</span>
+                        <span class="n-num"> 3 </span>
+                    </a>
+                    <a href="/setting" class="n-btn n-setting">
+                        <span class="iconfont icon-ic_setting"></span>
+                        <span class="n-text">设置</span>
+                    </a>
+                </div>
+
+                <!--<div class="n-statistics"><a href="/" class="n-data n-gz" title="22"><p-->
+                <!--class="n-data-k">关注数</p>-->
+                <!--<p id="n-gz" class="n-data-v space-attention">22</p></a><a href="/"-->
+                <!--class="n-data n-fs" title="0"><p-->
+                <!--class="n-data-k">粉丝数</p>-->
+                <!--<p id="n-fs" class="n-data-v space-fans">0</p></a>-->
+                <!--</div>-->
+
+            </div>
+        </div>
+    </div>
+
+    <div class="s-space">
+        <div>
+            <div id="page-index" class="wrapper clearfix">
+                <div class="col-1">
+
+                    <div class="section video empty full-rows host">
+                        <h3 class="section-title"><a href="/18796566/video" class="t">我的视频</a><span
+                            class="count">0</span>
+                            <div class="sec-empty-hint sec-empty-hint-host">
+                                还没有上传过视频哦~
+                                <a href="//member.bilibili.com/v/video/submit.html" target="_blank">
+                                    立即上传
+                                </a>
+                            </div>
+                        </h3>
+                        <div class="content clearfix"></div>
+                    </div>
+
+                    <div class="section fav">
+                        <h3 class="section-title">
+                            <a href="/favlist" class="t">我的收藏夹</a>
+                            <div class="content clearfix">
+                                <div data-count="" class="fav-item">
+                                    <a href="/" class="fav-covers empty"></a>
+                                    <span class="fav-count">0</span>
+                                </div>
+                            </div>
+                        </h3>
+                    </div>
+
+                    <!--<div class="section album"><h3 class="section-title"><a href="/"-->
+                    <!--class="t">我的相簿</a><span-->
+                    <!--class="count">1</span><a href="/" class="more">更多</a></h3>-->
+                    <!--<div class="content clearfix">-->
+                    <!--<div class="album-wrapper">-->
+                    <!--<div class="album-item">-->
+                    <!--<a href="" target="_blank" title=""-->
+                    <!--class="album-top">-->
+                    <!--<div class="album-img"></div>-->
+                    <!--</a>-->
+                    <!--<a href="/" title="我" class="album-title">我</a>-->
+                    <!--<div class="meta-col"><span title="访问量" class="view"><i-->
+                    <!--class="icon"></i>0</span><span title="喜欢数" class="like"><i-->
+                    <!--class="icon"></i>0</span></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                </div>
+                <div class="col-2">
+
+                    <div class="section elec" style="min-height: 250px;">
+                        <!-- 天气 -->
+                        <iframe scrolling="no" src="http://tianqiapi.com/api.php?style=ts&skin=durian" frameborder="0"
+                                width="310" height="250" allowtransparency="true"></iframe>
+                    </div>
+
+                    <!--<div class="section elec">-->
+                    <!--<div class="elec-action">-->
+                    <!--<div class="elec-trigger"><span class="elec-trigger-icon icon"></span>为TA充电</div>-->
+                    <!--<div class="elec-map">-->
+                    <!--<div class="elec-status">共-->
+                    <!--<span class="elec-count">0</span>人-->
+                    <!--</div>-->
+                    <!--<div class="elec-status-bg"></div>-->
+                    <!--<div class="elec-status-bg-grey"></div>-->
+                    <!--</div>-->
+                    <!--<div id="elec-hover-bg-preloader"></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                    <!--<div class="section i-ann"><h3 class="section-title">公告</h3>-->
+                    <!--<div class="content">-->
+                    <!--<div class="be-textarea be-input&#45;&#45;append" id="i-ann-content"><textarea rows="4"-->
+                    <!--type="textarea"-->
+                    <!--placeholder="编辑我的空间公告"-->
+                    <!--maxlength="150"-->
+                    <!--class="be-textarea_inner"></textarea>-->
+                    <!--<div class="be-input-word-counter">0/150</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="to-top"></div>
+</div>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/plugin/layui/layui.all.js"></script>
+<script src="static/js/base.js"></script>
+<script src="static/js/userinfo.js"></script>
+<script>
+    $(function () {
+        
+    })
+</script>
+</body>
+</html>

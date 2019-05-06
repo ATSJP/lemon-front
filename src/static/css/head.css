@@ -116,7 +116,7 @@
 .primary-menu .nav-menu li.home > a {
     width: auto;
     display: block;
-    background: url(//static.hdslb.com/images/base/icons.png) -660px -1170px no-repeat;
+    background: url(//www.lemon.com/images/base/icons.png) -660px -1170px no-repeat;
 }
 
 .primary-menu .nav-menu li.home > a .nav-name {
@@ -154,7 +154,7 @@
     display: block;
     padding: 5px 15px 5px 25px;
     margin-right: 10px;
-    background: url(//s1.hdslb.com/bfs/seed/jinkela/header/images/icons2.png) no-repeat 12px -1613px;
+    background: url(//www.lemon.com/bfs/seed/jinkela/header/images/icons2.png) no-repeat 12px -1613px;
     white-space: nowrap;
     transition: 0.2s all;
     overflow: hidden;
@@ -169,7 +169,7 @@
 
 .primary-menu .nav-menu .sub-nav li > a span:after {
     content: '';
-    background: url(//s1.hdslb.com/bfs/seed/jinkela/header/images/icons2.png) no-repeat 0 -1581px;
+    background: url(//www.lemon.com/bfs/seed/jinkela/header/images/icons2.png) no-repeat 0 -1581px;
     width: 15px;
     height: 18px;
     display: block;
@@ -215,7 +215,7 @@
     width: 18px;
     height: 18px;
     margin: 3px auto 2px auto;
-    background: url('//static.hdslb.com/images/base/icons.png') no-repeat;
+    background: url('//www.lemon.com/images/base/icons.png') no-repeat;
 }
 
 .primary-menu .nav-menu .side-nav .side-link i.square {
@@ -306,7 +306,7 @@
     margin-top: 4px;
     vertical-align: top;
     display: inline-block;
-    background-image: url(//static.hdslb.com/images/base/icons.png);
+    background-image: url(//www.lemon.com/images/base/icons.png);
 }
 
 .primary-menu .nav-menu .side-nav .square-wrap .icon-activity {
@@ -336,7 +336,7 @@
     margin-top: 0;
     vertical-align: inherit;
     background-repeat: no-repeat;
-    background-image: url(//s1.hdslb.com/bfs/seed/jinkela/header/images/icon-pc.png);
+    background-image: url(//www.lemon.com/bfs/seed/jinkela/header/images/icon-pc.png);
     background-position: center;
 }
 
@@ -569,7 +569,7 @@
 
 .bili-header-m .bili-icon {
     display: inline-block;
-    background-image: url(//static.hdslb.com/images/base/icons.png);
+    background-image: url(//www.lemon.com/images/base/icons.png);
 }
 
 .bili-header-m .nav-wrapper {
@@ -713,7 +713,7 @@
     right: -4px;
     width: 24px;
     height: 12px;
-    background: url(//s1.hdslb.com/bfs/seed/jinkela/header/images/yizhounian.png) no-repeat;
+    background: url(//www.lemon.com/bfs/seed/jinkela/header/images/yizhounian.png) no-repeat;
 }
 
 .bili-header-m .nav-menu .nav-con .nav-item .red_point {
@@ -780,7 +780,7 @@
     top: 42px;
     width: 259px;
     height: 174px;
-    background: url(//s1.hdslb.com/bfs/seed/jinkela/header/images/orcode-frame.png);
+    background: url(//www.lemon.com/bfs/seed/jinkela/header/images/orcode-frame.png);
 }
 
 .bili-header-m .nav-menu .nav-con .nav-item .app-orcode-box:before {
@@ -790,7 +790,7 @@
     height: 97px;
     left: 82px;
     top: 30px;
-    background: url(//s1.hdslb.com/bfs/seed/jinkela/header/images/app-orcode.png);
+    background: url(//www.lemon.com/bfs/seed/jinkela/header/images/app-orcode.png);
 }
 
 .bili-header-m .nav-menu.blur-black .nav-mask {
@@ -830,7 +830,7 @@
     height: 34px;
     top: 4px;
     right: -53px;
-    background: url(//s1.hdslb.com/bfs/seed/jinkela/header/images/up-new-iocn.png) no-repeat;
+    background: url(//www.lemon.com/bfs/seed/jinkela/header/images/up-new-iocn.png) no-repeat;
     z-index: 20;
 }
 
@@ -949,7 +949,7 @@
 }
 
 .bili-header-m .profile-info .i-face .legalize {
-    background-image: url(//s1.hdslb.com/bfs/seed/jinkela/header/images/user-auth.png);
+    background-image: url(//www.lemon.com/bfs/seed/jinkela/header/images/user-auth.png);
     width: 20px;
     height: 20px;
     position: absolute;
@@ -964,7 +964,7 @@
 }
 
 .bili-header-m .profile-info .i-face .legalize.small-vip {
-    background: url(//s1.hdslb.com/bfs/seed/jinkela/header/images/green_vip.png);
+    background: url(//www.lemon.com/bfs/seed/jinkela/header/images/green_vip.png);
 }
 
 .bili-header-m .profile-info .i-face .legalize.p-ver {
@@ -1077,7 +1077,7 @@
     vertical-align: middle;
     width: 12px;
     height: 12px;
-    background: url(//static.hdslb.com/images/base/icons.png) no-repeat;
+    background: url(//www.lemon.com/images/base/icons.png) no-repeat;
 }
 
 .bili-header-m .b-icon.b-icon-p-member,

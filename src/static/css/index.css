@@ -794,7 +794,7 @@ header {
   top: 14px;
   width: 220px;
   height: 115px;
-  background: url(../images/header_logo.png) no-repeat;
+  /*background: url(../images/header_logo.png) no-repeat;*/
 }
 #header_title {}
 #search {
