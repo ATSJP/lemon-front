@@ -129,8 +129,12 @@ function ajaxGetCateList() {
 
 function ajaxGetVideoInfo(videoId) {
     $.ajax({
-        url: "http://www.lemon.com/a/video/get/" + videoId,
+        url: "http://www.lemon.com/a/video/get",
         type: "GET",
+        data: {
+            "videoId": videoId,
+            "uid": getCookie("uid")
+        },
         dataType: "json",
         success: function (data) {
             if (data.code === 0) {
@@ -138,6 +142,8 @@ function ajaxGetVideoInfo(videoId) {
                 var bizFileDTOList = data.videoDTO.bizFileDTOList;
                 var categoryDTO = data.videoDTO.categoryDTO;
                 var remarkDTO = data.videoDTO.remarkDTO;
+                var isUp = data.videoDTO.isUp;
+                var isCollect = data.videoDTO.isCollect;
 
                 $(".video-title")[0].title = videoDetailDTO.videoName;
                 $(".tit").html(videoDetailDTO.videoName);
@@ -153,8 +159,83 @@ function ajaxGetVideoInfo(videoId) {
                 $("#createTime").html(videoDetailDTO.createTime);
                 $(".open").html(videoDetailDTO.videoContext);
 
+                // 视频
+                var video = "http://www.lemon.com/video/";
+                var pic = "http://120.79.251.217:9002/uploads/big/";
+                $.each(bizFileDTOList, function (index, value) {
+                    if (value.linkType === 0) {
+                        video += value.fileName + value.fileSuffix;
+                    }
+                    if (value.linkType === 1) {
+                        pic += value.fileName + value.fileSuffix;
+                    }
+                });
+                console.log(video)
+                console.log(pic)
+
+                newVideo(video, pic);
+
+                // 点赞 收藏
+                if (isUp === 0) {
+                    $(".van-icon-videodetails_like").css("color", "#505050");
+                } else {
+                    $(".van-icon-videodetails_like").css("color", "red");
+                }
+                if (isCollect === 0) {
+                    $(".van-icon-videodetails_collec").css("color", "#505050");
+                } else {
+                    $(".van-icon-videodetails_collec").css("color", "red");
+                }
+
                 // 评论
-                // newVideo("http://www.91jiexi.cn/test1.mp4");
+                var htmlComment = "";
+                $.each(remarkDTO, function (index, value) {
+                    htmlComment += "                            <div class=\"comment-list \">\n" +
+                        "                                <div class=\"list-item reply-wrap is-top\" data-id=\"\"\n" +
+                        "                                     data-index=\"0\">\n" +
+                        "                                    <div class=\"con \">\n" +
+                        "                                        <div class=\"user\">\n" +
+                        "                                            <a data-usercard-mid=\"\" href=\"/www.lemon.com/userInfo.html?uid="+ value.loginId +"\" target=\"_blank\"\n" +
+                        "                                            class=\"name vip-red-name\">"+ value.loginName +"</a>\n" +
+                        "                                        </div>\n" +
+                        "                                        <p class=\"text\">"+ value.remarkContext +"</p>\n" +
+                        "                                        <div class=\"info\">\n" +
+                        "                                            <span class=\"time\">"+ value.remarkTime +"</span>\n" +
+                        "                                            <!--<span class=\"reply btn-hover btn-highlight\">回复</span>-->\n" +
+                        "                                        </div>\n" +
+                        "                                    </div>\n" +
+                        "                                </div>\n" +
+                        "                            </div>";
+                    $.each(value.childRemarkDTOList, function (index, value) {
+                        htmlComment += "                            <div class=\"comment-list \">\n" +
+                            "                                <div class=\"list-item reply-wrap is-top\" data-id=\"\"\n" +
+                            "                                     data-index=\"0\">\n" +
+                            "                                    <div class=\"con \">\n" +
+                            "                                        <div class=\"user\">\n" +
+                            "                                            <a data-usercard-mid=\"\" href=\"/www.lemon.com/userInfo.html?uid="+ value.loginId +"\" target=\"_blank\"\n" +
+                            "                                            class=\"name vip-red-name\">"+ value.loginName +"</a>\n" +
+                            "                                        </div>\n" +
+                            "                                        <p class=\"text\">"+ value.remarkContext +"</p>\n" +
+                            "                                        <div class=\"info\">\n" +
+                            "                                            <span class=\"time\">"+ value.remarkTime +"</span>\n" +
+                            "                                            <!--<span class=\"reply btn-hover btn-highlight\">回复</span>-->\n" +
+                            "                                        </div>\n" +
+                            "                                    </div>\n" +
+                            "                                </div>\n" +
+                            "                            </div>";
+                    })
+                })
+                $(".comment-list").html(htmlComment);
+
+                // 定时弹幕
+                setInterval(function () {
+                    $.each(remarkDTO, function (index, value) {
+                        newDanmu(value.remarkContext);
+                        $.each(value.childRemarkDTOList, function (index, value) {
+                            newDanmu(value.remarkContext);
+                        })
+                    })
+                }, 1500);
             } else {
                 layer.msg('系统异常')
             }
@@ -177,8 +258,17 @@ function ajaxPutUp(videoId) {
         },
         success: function (data) {
             if (data.code === 0) {
-                $(".van-icon-videodetails_like").css("color", "red").attr('disabled',true);
-                layer.msg("谢谢");
+                var color = $(".van-icon-videodetails_like").css("color");
+                if (color === 'rgb(255, 0, 0)') {
+                    // 红色
+                    $(".van-icon-videodetails_like").css("color", "rgb(80, 80, 80)");
+                }
+                if (color === 'rgb(80, 80, 80)') {
+                    // 灰色
+                    $(".van-icon-videodetails_like").css("color", "rgb(255, 0, 0)");
+                }
+                // layer.msg('操作成功', {offset: ['52px', '1760px']}); /// 右上角
+                layer.msg('操作成功', {offset: 't'});
             } else {
                 layer.msg(data.msg);
             }
@@ -200,8 +290,16 @@ function ajaxPutCollect(videoId) {
         },
         success: function (data) {
             if (data.code === 0) {
-                $(".van-icon-videodetails_collec").css("color", "red").attr('disabled', true);
-                layer.msg("谢谢");
+                var color = $(".van-icon-videodetails_collec").css("color");
+                if (color === 'rgb(255, 0, 0)') {
+                    // 红色
+                    $(".van-icon-videodetails_collec").css("color", "rgb(80, 80, 80)");
+                }
+                if (color === 'rgb(80, 80, 80)') {
+                    // 灰色
+                    $(".van-icon-videodetails_collec").css("color", "rgb(255, 0, 0)");
+                }
+                layer.msg('操作成功', {offset: 't'});
             } else {
                 layer.msg(data.msg);
             }

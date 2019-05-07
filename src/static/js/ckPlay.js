@@ -7,7 +7,7 @@ var videoObject = {
     //autoplay: true, // 是否自动播放
     //duration: 500, // 设置视频总时间
     cktrack: '', // 字幕文件
-    poster: 'http://120.79.251.217:9002/uploads/big/1c59de005b565e8d57dd00510314dd5d.png', // 封面图片
+    poster: '', // 封面图片
     preview: { // 预览图片
         file: ['http://120.79.251.217:9002/uploads/big/1c59de005b565e8d57dd00510314dd5d.png', 'http://120.79.251.217:9002/uploads/big/1c59de005b565e8d57dd00510314dd5d.png'],
         scale: 2
@@ -58,34 +58,70 @@ var player = new ckplayer(videoObject);
 
 function loadedHandler() {
     player.addListener('error', errorHandler); //监听视频加载出错
-    player.addListener('loadedmetadata', loadedMetaDataHandler); //监听元数据
-    player.addListener('duration', durationHandler); //监听播放时间
-    player.addListener('time', timeHandler); //监听播放时间
+    // player.addListener('loadedmetadata', loadedMetaDataHandler); //监听元数据
+    // player.addListener('duration', durationHandler); //监听播放时间
+    // player.addListener('time', timeHandler); //监听播放时间
     player.addListener('play', playHandler); //监听暂停播放
     player.addListener('pause', pauseHandler); //监听暂停播放
-    player.addListener('buffer', bufferHandler); //监听缓冲状态
-    player.addListener('seek', seekHandler); //监听跳转播放完成
-    player.addListener('seekTime', seekTimeHandler); //监听跳转播放完成
+    // player.addListener('buffer', bufferHandler); //监听缓冲状态
+    // player.addListener('seek', seekHandler); //监听跳转播放完成
+    // player.addListener('seekTime', seekTimeHandler); //监听跳转播放完成
     player.addListener('volume', volumeChangeHandler); //监听音量改变
     player.addListener('full', fullHandler); //监听全屏/非全屏切换
-    player.addListener('ended', endedHandler); //监听播放结束
-    player.addListener('mouse', mouseHandler); //监听鼠标坐标
-    player.addListener('frontAd', frontAdHandler); //监听前置广告的动作
-    player.addListener('wheel', wheelHandler); //监听视频放大缩小
-    player.addListener('controlBar', controlBarHandler); //监听控制栏显示隐藏事件
-    player.addListener('clickEvent', clickEventHandler); //监听点击事件
-    player.addListener('definitionChange', definitionChangeHandler); //监听清晰度切换事件
-    player.addListener('speed', speedHandler); //监听加载速度
+    // player.addListener('ended', endedHandler); //监听播放结束
+    // player.addListener('mouse', mouseHandler); //监听鼠标坐标
+    // player.addListener('frontAd', frontAdHandler); //监听前置广告的动作
+    // player.addListener('wheel', wheelHandler); //监听视频放大缩小
+    // player.addListener('controlBar', controlBarHandler); //监听控制栏显示隐藏事件
+    // player.addListener('clickEvent', clickEventHandler); //监听点击事件
+    // player.addListener('definitionChange', definitionChangeHandler); //监听清晰度切换事件
+    // player.addListener('speed', speedHandler); //监听加载速度
 }
 
 function errorHandler() {
     changeText('.playerstate', '状态：视频加载错误，停止执行其它动作，等待其它操作');
 }
 
+function loadedMetaDataHandler() {
+    var metaData = player.getMetaDate();
+    //console.log(metaData)
+    var html = ''
+    //console.log(metaData);
+    if(parseInt(metaData['videoWidth']) > 0) {
+        changeText('.playerstate', '状态：获取到元数据信息，如果数据错误，可以使用延迟获取');
+        html += '总时间：' + metaData['duration'] + '秒，';
+        html += '音量：' + metaData['volume'] + '（范围0-1），';
+        html += '播放器的宽度：' + metaData['width'] + 'px，';
+        html += '播放器的高度：' + metaData['height'] + 'px，';
+        html += '视频宽度：' + metaData['videoWidth'] + 'px，';
+        html += '视频高度：' + metaData['videoHeight'] + 'px，';
+        html += '视频原始宽度：' + metaData['streamWidth'] + 'px，';
+        html += '视频原始高度：' + metaData['streamHeight'] + 'px，';
+        html += '是否暂停状态：' + metaData['paused'];
+    } else {
+        changeText('.playerstate', '状态：未正确获取到元数据信息');
+        html = '没有获取到元数据';
+    }
+    changeText('.metadata', html);
+}
+
+function volumeChangeHandler(vol) {
+    changeText('.volumechangestate', '当前音量：' + vol);
+}
+
+function fullHandler(b) {
+    if(b) {
+        html = ' 全屏';
+    } else {
+        html = ' 否';
+    }
+    changeText('.fullstate', getHtml('.fullstate') + html);
+}
+
 function playHandler() {
     //player.animateResume();//继续播放所有弹幕
     changeText('.playstate', getHtml('.playstate') + ' 播放');
-    window.setTimeout(function() {
+    window.setTimeout(function () {
         loadedMetaDataHandler();
     }, 1000);
     loadedMetaDataHandler();
@@ -97,20 +133,22 @@ function pauseHandler() {
     loadedMetaDataHandler();
 }
 
-function newVideo(videoUrl) {
-    changeVideo(videoUrl);
+function newVideo(videoUrl, picUrl) {
+    changeVideo(videoUrl, picUrl);
 }
 
-function changeVideo(videoUrl) {
-    if(player == null) {
+function changeVideo(videoUrl, picUrl) {
+    if (player == null) {
         return;
     }
+    console.log(picUrl);
+    console.log(videoUrl);
 
     var newVideoObject = {
-        container: '#video', //容器的ID
+        container: '#video', // 容器的ID
         variable: 'player',
-        autoplay: true, //是否自动播放
-        loaded: 'loadedHandler', //当播放器加载后执行的函数
+        autoplay: false, // 是否自动播放
+        loaded: 'loadedHandler', // 当播放器加载后执行的函数
         video: videoUrl
     }
     //判断是需要重新加载播放器还是直接换新地址
@@ -136,8 +174,9 @@ function changeVideo(videoUrl) {
     }
 }
 
-
-function newDanmu(text,x,y) {
+function newDanmu(text) {
+    var x = "100%";
+    var  y = Math.floor(Math.random() * 100) + "%";
     // 弹幕说明
     var danmuObj = {
         list: [{
@@ -199,7 +238,7 @@ function newDanmu(text,x,y) {
 }
 
 function deleteChild(ele) {
-    if(player) {
+    if (player) {
         player.deleteElement(ele);
     }
 }
@@ -211,4 +250,5 @@ function changeText(div, text) {
 function getHtml(div) {
     return player.getByElement(div).innerHTML;
 }
+
 var zoom = 1;

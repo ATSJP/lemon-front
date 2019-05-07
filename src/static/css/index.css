@@ -495,7 +495,7 @@ header {
 .header-top__nav .item-home a {
   width: 50px;
   padding: 0 0 0 20px;
-  background: url(../images/page_icons.png) no-repeat -845px -74px;
+  /*background: url(../images/page_icons.png) no-repeat -845px -74px;*/
 }
 .header-top__user {
   float: right;

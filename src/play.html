@@ -82,13 +82,34 @@
                         <i class="van-icon-videodetails_collec"></i>
                             <!--&#45;&#45;-->
                     </span>
+                    <!--<span title="分享" class="share">-->
+                        <!--<i class="van-icon-videodetails_share"></i>-->
+                            <!--<a href="javascript:;" onclick="openToQQ()">分享到QQ好友</a>-->
+                    <!--</span>-->
                     <span title="分享" class="share">
-                        <i class="van-icon-videodetails_share"></i>
-                        分享
+                        <i class="van-icon-videodetails_share"></i>分享
+                          <div class="share-box">
+                              <div class="share-pos">
+                                  <div class="box-a">
+                                      <div class="share-address">
+                                          <div class="share-down">
+                                              <!--<span class="share-btn"> <i-->
+                                                  <!--class="van-icon-share_weibo_default"></i>微博 </span>-->
+                                              <span class="share-btn"><i class="van-icon-share_qq_default"></i>QQ</span>
+                                              <span class="share-btn"><i
+                                                  class="van-icon-share_qzone_default"></i>QQ空间</span>
+                                              <!--<span class="share-btn"><i-->
+                                              <!--class="van-icon-share_tieba_default"></i>贴吧</span>-->
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
                     </span>
+
                 </div>
                 <div class="more"><i class="van-icon-general_moreactions"></i></div>
-                <div class="appeal-text">稿件投诉</div>
+                <!--<div class="appeal-text">稿件投诉</div>-->
             </div>
             <div id="v_desc" class="video-desc report-wrap-module report-scroll-module">
                 <div class="info open">
@@ -101,16 +122,70 @@
                     <!--</li>-->
                     <!--<a class="btn-add"><span-->
                         <!--class="one"></span><span class="two"></span></a>&lt;!&ndash;&ndash;&gt;</ul>-->
-            </div><!---->
-            <div id="comment" class="comment-m report-wrap-module report-scroll-module">
+            </div>
+
+            <div id="comment" class="comment-m report-wrap-module report-scroll-module" scrollshow="true">
                 <div class="common">
-                    <div class="b-head"><span class="b-head-t results"></span><span class="b-head-t">评论</span>
-                        <!--<a  href="" target="_blank"-->
-                        <!--class="del-log">查看删除日志</a>-->
+                    <div class="b-head">
+                        <!--<span class="b-head-t results">50</span>-->
+                        <span class="b-head-t">评论</span>
+                        <!--<a  href="/" target="_blank" class="del-log">查看删除日志</a>-->
                     </div>
-                    <div class="comment"></div>
+                    <div class="comment" style="position: relative;">
+                        <div class="bb-comment ">
+                            <div class="reply-notice"></div>
+                            <div class="comment-header clearfix">
+                                <div class="tabs-order">
+                                    <ul class="clearfix">
+                                        <li class="default-sort on" data-sort="0">全部评论</li>
+                                        <!--<li data-sort="0" class="new-sort">按时间排序</li>-->
+                                        <!--<li data-sort="2" class="hot-sort" style="display: list-item;">-->
+                                            <!--按热度排序-->
+                                        <!--</li>-->
+                                    </ul>
+                                </div>
+                                <!--<div class="header-page paging-box">-->
+                                    <!--<span class="result">共2页</span>-->
+                                    <!--<span class="disabled">上一页</span>-->
+                                    <!--<span class="current">1</span>-->
+                                    <!--<a href="javascript:;" class="tcd-number">2</a>-->
+                                    <!--<a href="javascript:;" class="next">下一页</a>-->
+                                <!--</div>-->
+                            </div>
+                            <div class="comment-send no-login">
+                                <div class="user-face">
+                                    <img class="user-head" src="http://120.79.251.217:9002/uploads/big/0f56650d67fe65ffcffc9c87403dd4e1.jpg">
+                                </div>
+                                <div class="textarea-container">
+                                    <div class="baffle-wrap">
+                                        <div class="baffle">请先<a class="b-btn btn-open-mini-Login">登录</a>后发表评论
+                                            (・ω・)
+                                        </div>
+                                    </div>
+                                    <i class="ipt-arrow"></i>
+                                    <textarea cols="80" name="msg" rows="5"
+                                              placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"
+                                              class="ipt-txt">
+                                    </textarea>
+                                    <button type="submit" class="comment-submit" disabled="disabled">发表评论
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="comment-list">
+
+                            </div>
+                            <!--<div class="bottom-page paging-box-big"><span class="disabled">上一页</span><span-->
+                                <!--class="current">1</span><a href="javascript:;" class="tcd-number">2</a><a-->
+                                <!--href="javascript:;" class="next">下一页</a>-->
+                                <!--<div class="page-jump">共<span>2</span>页，跳至<input type="text">页</div>-->
+                            <!--</div>-->
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
+
         </div><!-- 播放栏 end -->
         <div class="r-con">
             <div id="v_upinfo" class="up-info report-wrap-module report-scroll-module">
@@ -123,7 +198,7 @@
                         作者：
                         <a href="http://www.lemon.com/userInfo.html?uid=" target="_blank"
                            class="username is-vip"></a>
-                        <a href="//message.lemon.com/#whisper/mid23371320" target="_blank" class="message">
+                        <a href="/" target="_blank" class="message">
                             <!--<i class="van-icon-videodetails_messag"></i>发消息-->
                         </a>
                     </div>
@@ -201,19 +276,13 @@
 <script src="static/js/video.js"></script>
 <script type="text/javascript" src="static/plugin/ckplayer/ckplayer.js" charset="UTF-8"></script>
 <script src="static/js/ckPlay.js"></script>
+<script src="static/js/share.js"></script>
 <script>
     $(function () {
         var playId = getQueryString("playId");
         ajaxGetVideoInfo(playId);
 
-        // 定时弹幕
-        setInterval(function(){
-            var sval1 = Math.floor(Math.random() * 100);
-            var sval2 = Math.floor(Math.random() * 100);
-            newDanmu("发弹幕", sval1 + "%", sval2 + "%");
-        }, 900);
-
-        // layer.msg('收藏成功', {offset:  ['80px', '1400px']});
+        // 点赞 收藏
         $(".like").click(function () {
             ajaxPutUp(playId)
         })
@@ -221,7 +290,31 @@
             ajaxPutCollect(playId)
         })
 
+        // 分享
+        $(".van-icon-share_weibo_default").click(function () {
+            var title = $(".tit").val();
+            var href = window.location.href;
+            var context = $(".info").text();
+            var pic = 'http://120.79.251.217:9002/uploads/big/0f56650d67fe65ffcffc9c87403dd4e1.jpg';
+            sinaWeiBo(href, title, context, pic);
+        })
+        $(".van-icon-share_qq_default").click(function () {
+            var title = $(".tit").val();
+            var href = window.location.href;
+            var context = $(".info").text();
+            var pic = 'http://120.79.251.217:9002/uploads/big/0f56650d67fe65ffcffc9c87403dd4e1.jpg';
+            qqFriend(href, title, context, pic);
+        })
+        $(".van-icon-share_qzone_default").click(function () {
+            var title = $(".tit").val();
+            var href = window.location.href;
+            var context = $(".info").text();
+            var pic = 'http://120.79.251.217:9002/uploads/big/0f56650d67fe65ffcffc9c87403dd4e1.jpg';
+            qqZone(href, title, context, pic);
+        })
+
     })
+
 </script>
 </body>
 </html>
