@@ -143,7 +143,6 @@ function changeVideo(videoUrl, picUrl) {
     }
     console.log(picUrl);
     console.log(videoUrl);
-
     var newVideoObject = {
         container: '#video', // 容器的ID
         variable: 'player',

@@ -3415,7 +3415,6 @@
 }
 
 .user-card-m .info .user .sex {
-    background: url(//www.lemon.com/bfs/static/jinkela/video/asserts/icons-comment.png) no-repeat;
     margin-left: 6px;
     width: 15px;
     height: 13px;
@@ -3441,8 +3440,7 @@
     width: 19px;
     height: 9px;
     vertical-align: middle;
-    margin-left: 8px;
-    background: url(//www.lemon.com/bfs/static/jinkela/video/asserts/icons-comment.png) no-repeat
+    margin-left: 8px
 }
 
 .user-card-m .info .level.l0 {

@@ -170,9 +170,6 @@ function ajaxGetVideoInfo(videoId) {
                         pic += value.fileName + value.fileSuffix;
                     }
                 });
-                console.log(video)
-                console.log(pic)
-
                 newVideo(video, pic);
 
                 // 点赞 收藏
@@ -190,52 +187,63 @@ function ajaxGetVideoInfo(videoId) {
                 // 评论
                 var htmlComment = "";
                 $.each(remarkDTO, function (index, value) {
-                    htmlComment += "                            <div class=\"comment-list \">\n" +
+                    htmlComment +=
                         "                                <div class=\"list-item reply-wrap is-top\" data-id=\"\"\n" +
                         "                                     data-index=\"0\">\n" +
                         "                                    <div class=\"con \">\n" +
                         "                                        <div class=\"user\">\n" +
-                        "                                            <a data-usercard-mid=\"\" href=\"/www.lemon.com/userInfo.html?uid="+ value.loginId +"\" target=\"_blank\"\n" +
-                        "                                            class=\"name vip-red-name\">"+ value.loginName +"</a>\n" +
+                        "                                            <a data-usercard-mid=\"\" href=\"/www.lemon.com/userInfo.html?uid=" + value.loginId + "\" target=\"_blank\"\n" +
+                        "                                            class=\"name vip-red-name\">" + value.loginName + "</a>\n" +
                         "                                        </div>\n" +
-                        "                                        <p class=\"text\">"+ value.remarkContext +"</p>\n" +
+                        "                                        <p class=\"text\">" + value.remarkContext + "</p>\n" +
                         "                                        <div class=\"info\">\n" +
-                        "                                            <span class=\"time\">"+ value.remarkTime +"</span>\n" +
+                        "                                            <span class=\"time\">" + value.remarkTime + "</span>\n" +
                         "                                            <!--<span class=\"reply btn-hover btn-highlight\">回复</span>-->\n" +
                         "                                        </div>\n" +
                         "                                    </div>\n" +
-                        "                                </div>\n" +
-                        "                            </div>";
-                    $.each(value.childRemarkDTOList, function (index, value) {
-                        htmlComment += "                            <div class=\"comment-list \">\n" +
-                            "                                <div class=\"list-item reply-wrap is-top\" data-id=\"\"\n" +
-                            "                                     data-index=\"0\">\n" +
-                            "                                    <div class=\"con \">\n" +
-                            "                                        <div class=\"user\">\n" +
-                            "                                            <a data-usercard-mid=\"\" href=\"/www.lemon.com/userInfo.html?uid="+ value.loginId +"\" target=\"_blank\"\n" +
-                            "                                            class=\"name vip-red-name\">"+ value.loginName +"</a>\n" +
-                            "                                        </div>\n" +
-                            "                                        <p class=\"text\">"+ value.remarkContext +"</p>\n" +
-                            "                                        <div class=\"info\">\n" +
-                            "                                            <span class=\"time\">"+ value.remarkTime +"</span>\n" +
-                            "                                            <!--<span class=\"reply btn-hover btn-highlight\">回复</span>-->\n" +
-                            "                                        </div>\n" +
-                            "                                    </div>\n" +
-                            "                                </div>\n" +
-                            "                            </div>";
-                    })
+                        "                                </div>\n";
+                    if (value.childRemarkDTOList !== null) {
+                        $.each(value.childRemarkDTOList, function (index, value) {
+                            htmlComment +=
+                                "                                <div class=\"list-item reply-wrap is-top\" data-id=\"\"\n" +
+                                "                                     data-index=\"0\">\n" +
+                                "                                    <div class=\"con \">\n" +
+                                "                                        <div class=\"user\">\n" +
+                                "                                            <a data-usercard-mid=\"\" href=\"/www.lemon.com/userInfo.html?uid=" + value.loginId + "\" target=\"_blank\"\n" +
+                                "                                            class=\"name vip-red-name\">" + value.loginName + "</a>\n" +
+                                "                                        </div>\n" +
+                                "                                        <p class=\"text\">" + value.remarkContext + "</p>\n" +
+                                "                                        <div class=\"info\">\n" +
+                                "                                            <span class=\"time\">" + value.remarkTime + "</span>\n" +
+                                "                                            <!--<span class=\"reply btn-hover btn-highlight\">回复</span>-->\n" +
+                                "                                        </div>\n" +
+                                "                                    </div>\n" +
+                                "                                </div>\n";
+                        })
+                    }
+
                 })
                 $(".comment-list").html(htmlComment);
 
                 // 定时弹幕
+                var time = 1000;
+                // if (remarkDTO !== null) {
+                //     if (remarkDTO.length > 5) {
+                //         time = 1000;
+                //     }
+                // }
                 setInterval(function () {
-                    $.each(remarkDTO, function (index, value) {
-                        newDanmu(value.remarkContext);
-                        $.each(value.childRemarkDTOList, function (index, value) {
+                    if (remarkDTO !== null) {
+                        $.each(remarkDTO, function (index, value) {
                             newDanmu(value.remarkContext);
+                            if (value.childRemarkDTOList !== null) {
+                                $.each(value.childRemarkDTOList, function (index, value) {
+                                    newDanmu(value.remarkContext);
+                                })
+                            }
                         })
-                    })
-                }, 1500);
+                    }
+                }, time);
             } else {
                 layer.msg('系统异常')
             }

@@ -5,6 +5,13 @@ if (name !== undefined && name !== '') {
     $("#h-name").text("未登录");
 }
 
-function ajaxGetInfo() {
-    
+function initLoginUserForCenter() {
+    var name = getCookie('name');
+    if (name !== undefined && name !== '') {
+        $("#isLogin").text(name).show();
+        $("#loginOut").show();
+    } else {
+        $("#isLogin").hide();
+        $("#loginOut").hide();
+    }
 }

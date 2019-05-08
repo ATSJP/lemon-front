@@ -102,6 +102,18 @@ function initLoginUser() {
     }
 }
 
+function initLoginUserForPlay() {
+    var name = getCookie('name');
+    if (name !== undefined && name !== '') {
+        $(".baffle").hide();
+        $(".comment-submit").attr("hidden", false);
+        $(".comment-send").removeClass("no-login");
+    } else {
+        $(".baffle").show();
+        $(".comment-submit").attr("hidden", true);
+    }
+}
+
 function checkStatus() {
     // layui.use('layer', function () {
         $.ajax({
