@@ -49,9 +49,9 @@ var videoObject = {
     //mobileCkControls:true,// 是否在移动端（包括ios）环境中显示控制栏
     //live:true,// 是否是直播视频，true=直播，false=点播
     video: [
-        ['http://www.91jiexi.cn/test1.mp4', 'video/mp4', '标清', 0],
-        ['http://www.91jiexi.cn/test1.mp4', 'video/mp4', '高清', 0],
-        ['http://www.91jiexi.cn/test1.mp4', 'video/mp4', '超清', 0]
+        ['http://www.lemon.com/video/test1.mp4', 'video/mp4', '标清', 0],
+        ['http://www.lemon.com/video/test1.mp4', 'video/mp4', '高清', 0],
+        ['http://www.lemon.com/video/test1.mp4', 'video/mp4', '超清', 0]
     ]
 };
 var player = new ckplayer(videoObject);

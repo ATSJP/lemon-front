@@ -575,7 +575,7 @@
 }
 
 .user-card .info .user .sex {
-    background: url(../../dist/images/icons-comment.png) no-repeat;
+    background: url(../images/icons-comment.png) no-repeat;
     margin-left: 6px;
     width: 15px;
     height: 13px;
@@ -602,7 +602,7 @@
     height: 9px;
     vertical-align: middle;
     margin-left: 8px;
-    background: url(../../dist/images/icons-comment.png) no-repeat
+    background: url(../images/icons-comment.png) no-repeat
 }
 
 .user-card .info .level.l0 {
@@ -936,7 +936,7 @@
     content: "";
     width: 6px;
     height: 3px;
-    background: transparent url(../../dist/images/icons-comment.png) -669px -31px no-repeat;
+    background: transparent url(../images/icons-comment.png) -669px -31px no-repeat;
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -1000,7 +1000,7 @@
     position: absolute;
     left: -12px;
     top: 22px;
-    background: url(../../dist/images/icons-comment.png) -395px -340px no-repeat;
+    background: url(../images/icons-comment.png) -395px -340px no-repeat;
     width: 13px;
     height: 20px;
     display: inline-block;
@@ -1083,7 +1083,7 @@
     width: 16px;
     height: 16px;
     margin-right: 5px;
-    background: url(../../dist/images/icons-comment.png) no-repeat -408px -24px
+    background: url(../images/icons-comment.png) no-repeat -408px -24px
 }
 
 .bb-comment .comment-send .comment-emoji .text {
@@ -1368,7 +1368,7 @@
     height: 9px;
     vertical-align: middle;
     margin: 0 8px;
-    background: url(../../dist/images/icons-comment.png) no-repeat
+    background: url(../images/icons-comment.png) no-repeat
 }
 
 .bb-comment .comment-list .list-item .user .level.l0 {
@@ -1527,7 +1527,7 @@
     height: 14px;
     vertical-align: text-top;
     margin-right: 5px;
-    background: url(../../dist/images/icons-comment.png) no-repeat;
+    background: url(../images/icons-comment.png) no-repeat;
     background-position: -153px -25px
 }
 
@@ -1550,7 +1550,7 @@
     height: 14px;
     vertical-align: text-top;
     margin-right: 5px;
-    background: url(../../dist/images/icons-comment.png) no-repeat;
+    background: url(../images/icons-comment.png) no-repeat;
     background-position: -153px -153px
 }
 
@@ -1574,7 +1574,7 @@
     width: 18px;
     height: 18px;
     cursor: pointer;
-    background: url(../../dist/images/icons-comment.png) no-repeat;
+    background: url(../images/icons-comment.png) no-repeat;
     background-position: -151px -280px
 }
 
@@ -1815,7 +1815,7 @@
 }
 
 .bb-comment .reply-notice .notice-item .icon-notice {
-    background: url(../../dist/images/icons-comment.png);
+    background: url(../images/icons-comment.png);
     background-position: -280px -24px;
     display: inline-block;
     width: 17px;
@@ -1832,7 +1832,7 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    background: url(../../dist/images/icons-comment.png);
+    background: url(../images/icons-comment.png);
     background-position: -278px -86px;
     cursor: pointer
 }

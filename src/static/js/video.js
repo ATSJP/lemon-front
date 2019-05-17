@@ -16,7 +16,7 @@ function ajaxGetIndexVideoRank() {
                 $.each(videoDTOList, function (index, value) {
                     var videoDetailDTO = value.videoDetailDTO;
                     html += " <li class=\"item\">\n" +
-                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + (index + 1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + (index + 1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
                         "                        </li>";
                 })
                 $("#playNumRank").append(html);
@@ -39,7 +39,7 @@ function ajaxGetIndexVideoRank() {
                 $.each(videoDTOList, function (index, value) {
                     var videoDetailDTO = value.videoDetailDTO;
                     html += " <li class=\"item\">\n" +
-                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + (index + 1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + (index + 1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
                         "                        </li>";
                 })
                 $("#remarkNumRank").append(html);
@@ -71,14 +71,14 @@ function ajaxGetVideoList(categoryId, pageIndex, view) {
                     var bizFileDTOList = value.bizFileDTOList
 
                     html += "<li class=\"item\">\n" +
-                        "                        <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
+                        "                        <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
                         "                            <img src=\"http://120.79.251.217:9002/uploads/big/" + bizFileDTOList[0].fileName + bizFileDTOList[0].fileSuffix + "\"\n" +
                         "                                 alt=\"#\">\n" +
                         "                            <span class=\"mask\"></span>\n" +
                         "                            <span class=\"time\">" + videoDetailDTO.time + "</span>\n" +
                         "                        </a>\n" +
                         "                        <div class=\"img-info\">\n" +
-                        "                            <a href=\"http://www.lemon.com/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
                         "                            <div class=\"btm\">\n" +
                         "                                <div class=\"user\"><i></i>" + videoDetailDTO.userName + "</div>\n" +
                         "                                <div class=\"online\"><i></i>" + videoDetailDTO.playNum + "</div>\n" +
@@ -253,8 +253,16 @@ function ajaxGetVideoInfo(videoId) {
 }
 
 function ajaxPutUp(videoId) {
+    var color = $(".van-icon-videodetails_like").css("color");
+    var url = "http://www.lemon.com/a/up?";
+    if (color === 'rgb(255, 0, 0)') {
+        // 红色
+        url += "_method=DELETE";
+    } else {
+        url += "_method=PUT";
+    }
     $.ajax({
-        url: "http://www.lemon.com/a/up?_method=PUT",
+        url: url,
         type: "POST",
         data: {
             "videoId": videoId,
@@ -266,7 +274,6 @@ function ajaxPutUp(videoId) {
         },
         success: function (data) {
             if (data.code === 0) {
-                var color = $(".van-icon-videodetails_like").css("color");
                 if (color === 'rgb(255, 0, 0)') {
                     // 红色
                     $(".van-icon-videodetails_like").css("color", "rgb(80, 80, 80)");
@@ -285,8 +292,16 @@ function ajaxPutUp(videoId) {
 }
 
 function ajaxPutCollect(videoId) {
+    var color = $(".van-icon-videodetails_collec").css("color");
+    var url = "http://www.lemon.com/a/collect?";
+    if (color === 'rgb(255, 0, 0)') {
+        // 红色
+        url += "_method=DELETE";
+    } else {
+        url += "_method=PUT";
+    }
     $.ajax({
-        url: "http://www.lemon.com/a/collect?_method=PUT",
+        url: url,
         type: "POST",
         data: {
             "videoId": videoId,
@@ -298,7 +313,6 @@ function ajaxPutCollect(videoId) {
         },
         success: function (data) {
             if (data.code === 0) {
-                var color = $(".van-icon-videodetails_collec").css("color");
                 if (color === 'rgb(255, 0, 0)') {
                     // 红色
                     $(".van-icon-videodetails_collec").css("color", "rgb(80, 80, 80)");
