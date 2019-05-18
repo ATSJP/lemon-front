@@ -51,7 +51,7 @@ function ajaxGetIndexVideoRank() {
 }
 
 /**
- * 根据分类 分页查询视频list
+ * 根据分类，分页查询视频list-首页
  *
  * @param categoryId 分类id
  */
@@ -92,6 +92,9 @@ function ajaxGetVideoList(categoryId, pageIndex, view) {
     })
 }
 
+/**
+ * 获取分类list-首页
+ */
 function ajaxGetCateList() {
     $.ajax({
         url: "http://www.lemon.com/a/category/tree",
@@ -119,14 +122,16 @@ function ajaxGetCateList() {
                 //     ajaxGetVideoList(value.subCategoryDTOList[0].categoryId, 1);
                 // }
             })
-
-
             $(".nav-list").append(html1)
             $(".sideBar-list").append(toolbar + "<a href=\"#\"><i></i>排序</a>")
         }
     })
 }
 
+/**
+ * 获取视频详细
+ * @param videoId
+ */
 function ajaxGetVideoInfo(videoId) {
     $.ajax({
         url: "http://www.lemon.com/a/video/get",
@@ -252,6 +257,10 @@ function ajaxGetVideoInfo(videoId) {
     })
 }
 
+/**
+ * 点赞
+ * @param videoId
+ */
 function ajaxPutUp(videoId) {
     var color = $(".van-icon-videodetails_like").css("color");
     var url = "http://www.lemon.com/a/up?";
@@ -291,6 +300,10 @@ function ajaxPutUp(videoId) {
     })
 }
 
+/**
+ * 收藏
+ * @param videoId
+ */
 function ajaxPutCollect(videoId) {
     var color = $(".van-icon-videodetails_collec").css("color");
     var url = "http://www.lemon.com/a/collect?";
@@ -328,3 +341,20 @@ function ajaxPutCollect(videoId) {
         }
     })
 }
+
+/**
+ * 上传视频
+ */
+$(".post").click(function () {
+    layer.open({
+        title: '文件上传',
+        type: 2,
+        resize: true,
+        area: ['900px', '600px'],
+        move: true,
+        content: ['http://www.lemon.com/v/upload.html', 'no'],
+        yes: function (index, layero) {
+//                layero.find('#draftClue').submit();
+        }
+    })
+})

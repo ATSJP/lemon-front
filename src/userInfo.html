@@ -3,10 +3,10 @@
     <meta charset="UTF-8">
     <meta charset="utf-8">
     <title>个人空间</title>
+    <link rel="shortcut icon" href="static/favicons/1.png">
     <link href="static/css/userinfohead.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="static/css/userinfobody.css">
     <link rel="stylesheet" type="text/css" href="static/css/userInfo.css">
-
     <link rel="stylesheet" href="static/css/reset.css">
     <link rel="stylesheet" href="static/css/index.css">
 </head>
@@ -24,15 +24,24 @@
                             主站</a>
                     </li>
                     <li class="nav-item home">
-                        <span class="t" id="isLogin" style="color: palevioletred">
-                            <!--<i class="header-iconfont header-icon-bilibili-tv"></i>-->
-                            </span>
-                    </li>
-                    <li class="nav-item home">
-                        <a href="javaScript:void(0)" id="loginOut" style="display: none;">退出</a>
+                        <a href="javaScript:void(0)" id="loginOut" style="display: none;">我要退出</a>
                     </li>
                 </ul>
             </div>
+
+            <div class="header-top__user">
+                <div class="login-box" >
+                    <a href="javascript:void(0)" style="color:palevioletred" onclick="window.open('http://www.lemon.com/userInfo.html')" id="isLogin">test</a>
+                </div>
+
+                <div class="user-post">
+                    <a href="#" class="link">分 享</a>
+                    <div class="user-post__hover header-hover">
+                        <a href="#" class="post">视频上传</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -223,6 +232,7 @@
 <script src="static/js/base.js"></script>
 <script src="static/js/userinfo.js"></script>
 <script src="static/js/user.js"></script>
+<script src="static/js/video.js"></script>
 <script>
     $(function () {
         initLoginUserForCenter();

@@ -13,5 +13,14 @@ function initLoginUserForCenter() {
     } else {
         $("#isLogin").hide();
         $("#loginOut").hide();
+        layer.open({
+            content: '请前往首页进行登陆',
+            closeBtn: 0,
+            yes: function (index, layero) {
+                //do something
+                layer.close(index); //如果设定了yes回调，需进行手工关闭
+                window.location.href = "http://www.lemon.com";
+            }
+        });
     }
 }

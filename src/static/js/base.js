@@ -19,16 +19,10 @@ function getCookie(name) {
 }
 
 
-$(".post").click(function () {
-    layer.open({
-        title: '文件上传',
-        type: 2,
-        resize: true,
-        area: ['400px', '280px'],
-        move: true,
-        content: ['http://www.lemon.com/v/upload.html', 'no'],
-        yes: function (index, layero) {
-//                layero.find('#draftClue').submit();
-        }
-    })
-})
+// 按下ESC按钮关闭弹层
+$('body',document).on('keyup', function (e) {
+    if (e.which === 27) {
+        // console.log("按下esc");
+        layer.closeAll();
+    }
+});
