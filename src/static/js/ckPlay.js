@@ -103,7 +103,7 @@ function changeVideo(videoUrl, picUrl) {
         autoplay: false, // 是否自动播放
         loaded: 'loadedHandler', // 当播放器加载后执行的函数
         video: videoUrl,
-        // poster: picUrl, // 封面图片
+        poster: picUrl, // 封面图片
         // advertisements: 'http://www.lemon.com/restful/ad.json',
     }
     //判断是需要重新加载播放器还是直接换新地址

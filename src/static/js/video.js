@@ -204,9 +204,9 @@ function ajaxGetVideoInfo(videoId) {
                 });
 
                 // 播放广告
-                newVideo("http://www.lemon.com/video/test.mp4", "http://120.79.251.217:9002/uploads/big/469a8686b7e9091be50f51435f2637c5.jpg");
+                newVideo("http://www.lemon.com/video/test.mp4", "http://www.lemon.com/static/adv/adv.png");
                 setTime()
-                checkTimeOut(video, pic)
+                checkTimeOut(video, "")
 
                 // 点赞 收藏
                 if (isUp === 0) {

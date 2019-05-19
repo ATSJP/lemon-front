@@ -13,17 +13,18 @@
     <form class="layui-form">
 
         <input type="hidden" name="picId">
+        <input type="hidden" name="videoFileId">
         <input type="hidden" name="videoId">
 
-        <div class="layui-form-item">
+        <div class="layui-form-item" id="videoName-item">
             <label class="layui-form-label">视频名称</label>
             <div class="layui-input-block">
-                <input type="text" name="fileName" required lay-verify="required|videoName"
+                <input type="text" name="videoName" required lay-verify="required|videoName"
                        placeholder="请输入想要展示的视频名称" autocomplete="off" class="layui-input" value="">
             </div>
         </div>
 
-        <div class="layui-form-item">
+        <div class="layui-form-item" id="category-item">
             <label class="layui-form-label">分&emsp;&emsp;类</label>
             <div class="layui-input-block">
                 <div class="layui-form layui-input-inline" lay-filter="parentCateDiv">
@@ -39,7 +40,15 @@
             </div>
         </div>
 
-        <div class="layui-form-item">
+        <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">视频简介</label>
+            <div class="layui-input-block">
+                <textarea name="videoContext" required lay-verify="required|videoContext" placeholder="请输入视频简介"
+                          class="layui-textarea"></textarea>
+            </div>
+        </div>
+
+        <div class="layui-form-item" id="pic-item" style="display: none">
             <label class="layui-form-label">上传封面</label>
             <div class="layui-input-block">
                 <div id="uploader" class="upload-box">
@@ -64,10 +73,10 @@
             </div>
         </div>
 
-        <div class="layui-form-item">
+        <div class="layui-form-item" id="video-item" style="display: none">
             <label class="layui-form-label">上传文件</label>
             <div class="layui-input-block">
-                <input type="file" name="file" required lay-verify="required" value="test"
+                <input type="file" name="file" value="test"
                        placeholder=""
                        autocomplete="off" class="layui-input">
             </div>
@@ -75,7 +84,10 @@
 
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="login">立即投稿</button>
+                <button class="layui-btn" lay-submit lay-filter="submit-video" id="submit-video">立即投稿</button>
+                <button class="layui-btn" lay-submit lay-filter="modify-video" id="modify-video" style="display: none">
+                    提交文件
+                </button>
                 <i class="layui-icon" style="display: none">&#xe63d;</i>
             </div>
         </div>
@@ -85,6 +97,7 @@
 <script type="text/javascript" src="../static/plugin/layui/layui.js"></script>
 <script type="text/javascript" src="../static/plugin/webupload/js/webuploader.js"></script>
 <script type="text/javascript" src="../static/js/uploadpic.js"></script>
+<script type="text/javascript" src="../static/js/base.js"></script>
 <script>
     function loadParentCate(form) {
         $.ajax({
@@ -108,7 +121,11 @@
         loadParentCate(form);
 
         form.verify({
-            fileName: [
+            videoName: [
+                /^[\u4E00-\u9FA5A-Za-z0-9]+$/
+                , '中文、英文、数字但不包括下划线等符号'
+            ],
+            videoContext: [
                 /^[\u4E00-\u9FA5A-Za-z0-9]+$/
                 , '中文、英文、数字但不包括下划线等符号'
             ]
@@ -136,14 +153,20 @@
         });
 
         // 监听提交
-        form.on('submit(login)', function (data) {
+        form.on('submit(submit-video)', function (data) {
             const json = data.field
             const sendJson = {
                 "videoName": json.videoName,
+                "videoContext": json.videoContext,
                 "categoryId": json.childCate,
-                "picId": json.picId,
-                "videoId": json.videoId
+                "uid": getCookie("uid")
             };
+            // const sendJson = {
+            //     "videoName": json.videoName,
+            //     "categoryId": json.childCate,
+            //     "picId": json.picId,
+            //     "videoId": json.videoId
+            // };
 
             $.ajax({
                 url: 'http://www.lemon.com/a/video?_method=PUT',
@@ -156,7 +179,72 @@
                 success: function (data) {
                     layer.closeAll('loading')
                     if (data.code === 0) {
-                        layer.msg("上传成功");
+                        $("#videoName-item").hide()
+                        $(".layui-form-text").hide()
+                        $("#category-item").hide()
+                        $("#submit-video").hide()
+                        $("input[name=videoId]").val(data.videoDetailDTO.videoId);
+                        $("#pic-item").show()
+                        $("#video-item").show()
+                        $("#modify-video").show()
+                    } else {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function () {
+                    layer.closeAll('loading')
+                    layer.msg("系统繁忙");
+                }
+            });
+            return false;
+        });
+
+        form.on('submit(modify-video)', function (data) {
+            const json = data.field
+            if (json.videoId === '') {
+                layer.msg("重新上传")
+                return false;
+            }
+            if (json.picId === '') {
+                layer.msg("请先上传封面")
+                return false;
+            }
+            if (json.videoFileId === '') {
+                layer.msg("请先上传视频文件")
+                return false;
+            }
+            const sendJson = {
+                "videoId": json.videoId,
+                "videoFileId": json.videoFileId,
+                "picId": json.picId,
+                "uid": getCookie("uid")
+            };
+            // const sendJson = {
+            //     "videoName": json.videoName,
+            //     "categoryId": json.childCate,
+            //     "picId": json.picId,
+            //     "videoId": json.videoId
+            // };
+
+            $.ajax({
+                url: 'http://www.lemon.com/a/video?_method=PUT',
+                type: 'POST',
+                data: sendJson,
+                dataType: 'json',
+                beforeSend: function () {
+                    layer.load(0, {time: 1000});
+                },
+                success: function (data) {
+                    layer.closeAll('loading')
+                    if (data.code === 0) {
+                        $("#videoName-item").hide()
+                        $(".layui-form-text").hide()
+                        $("#category-item").hide()
+                        $("#submit-video").hide()
+                        $("input[name=videoId]").val(data.videoDetailDTO.videoId);
+                        $("#pic-item").show()
+                        $("#video-item").show()
+                        $("#modify-video").show()
                     } else {
                         layer.msg(data.msg);
                     }

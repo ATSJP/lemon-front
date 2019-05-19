@@ -2,41 +2,29 @@
     // 当domReady的时候开始初始化
     $(function () {
         var $wrap = $('#uploader'),
-
             // 图片容器
             $queue = $('<ul class="filelist"></ul>')
                 .appendTo($wrap.find('.queueList')),
-
             // 状态栏，包括进度和控制按钮
             $statusBar = $wrap.find('.statusBar'),
-
             // 文件总体选择信息。
             $info = $statusBar.find('.info'),
-
             // 上传按钮
             $upload = $wrap.find('.uploadBtn'),
-
             // 没选择文件之前的内容。
             $placeHolder = $wrap.find('.placeholder'),
-
             $progress = $statusBar.find('.progress').hide(),
-
             // 添加的文件数量
             fileCount = 0,
-
             // 添加的文件总大小
             fileSize = 0,
-
             // 优化retina, 在retina下这个值是2
             ratio = window.devicePixelRatio || 1,
-
             // 缩略图大小
             thumbnailWidth = 110 * ratio,
             thumbnailHeight = 110 * ratio,
-
             // 可能有pedding, ready, uploading, confirm, done.
             state = 'pedding',
-
             // 所有文件的进度信息，key为file id
             percentages = {},
             // 判断浏览器是否支持图片的base64
@@ -51,11 +39,9 @@
                 data.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
                 return support;
             })(),
-
             // 检测是否已经安装flash，检测flash的版本
             flashVersion = (function () {
                 var version;
-
                 try {
                     version = navigator.plugins['Shockwave Flash'];
                     version = version.description;
@@ -70,7 +56,6 @@
                 version = version.match(/\d+/g);
                 return parseFloat(version[0] + '.' + version[1], 10);
             })(),
-
             supportTransition = (function () {
                 var s = document.createElement('p').style,
                     r = 'transition' in s ||
@@ -81,12 +66,9 @@
                 s = null;
                 return r;
             })(),
-
             // WebUploader实例
             uploader;
-
         if (!WebUploader.Uploader.support('flash') && WebUploader.browser.ie) {
-
             // flash 安装了但是版本过低。
             if (flashVersion) {
                 (function (container) {
@@ -95,48 +77,38 @@
                             case 'Download.Cancelled':
                                 layer.msg('您取消了更新！')
                                 break;
-
                             case 'Download.Failed':
                                 layer.msg('安装失败')
                                 break;
-
                             default:
                                 layer.msg('安装已成功，请刷新！');
                                 break;
                         }
                         delete window['expressinstallcallback'];
                     };
-
                     var swf = './expressInstall.swf';
                     // insert flash object
                     var html = '<object type="application/' +
                         'x-shockwave-flash" data="' + swf + '" ';
-
                     if (WebUploader.browser.ie) {
                         html += 'classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ';
                     }
-
                     html += 'width="100%" height="100%" style="outline:0">' +
                         '<param name="movie" value="' + swf + '" />' +
                         '<param name="wmode" value="transparent" />' +
                         '<param name="allowscriptaccess" value="always" />' +
                         '</object>';
-
                     container.html(html);
-
                 })($wrap);
-
                 // 压根就没有安转。
             } else {
                 $wrap.html('<a href="http://www.adobe.com/go/getflashplayer" target="_blank" border="0"><img alt="get flash player" src="http://www.adobe.com/macromedia/style_guide/images/160x41_Get_Flash_Player.jpg" /></a>');
             }
-
             return;
         } else if (!WebUploader.Uploader.support()) {
             layer.msg('Web Uploader 不支持您的浏览器！');
             return;
         }
-
         // 实例化
         uploader = WebUploader.create({
             pick: {
@@ -144,7 +116,9 @@
                 label: '点击选择图片'
             },
             formData: {
-
+                "linkType": 1,
+                "linkId": $("input[name=videoId]").val(),
+                "uid": getCookie("uid")
             },
             // 指定Drag And Drop拖拽的容器，如果不指定，则不启动。
             dnd: '#uploader .queueList',
@@ -154,7 +128,7 @@
             chunked: false,
             // 如果要分片，分多大一片？ 默认大小为5M.
             chunkSize: 512 * 1024,
-            server: 'http://www.lemon.com/a/uploadPic',
+            server: 'http://www.lemon.com/a/file/upload',
             compress: {
                 width: 1600,
                 height: 1600,
@@ -174,7 +148,7 @@
             },
             // runtimeOrder: 'flash',
             // 设置文件上传域的name
-            fileVal: 'file',
+            fileVal: 'files',
             accept: {
                 title: 'Images',
                 extensions: 'gif,jpg,jpeg,bmp,png',
@@ -195,7 +169,6 @@
                 i = 0,
                 // 修改js类型
                 unAllowed = 'text/plain;application/javascript ';
-
             for (; i < len; i++) {
                 // 如果在列表里面
                 if (~unAllowed.indexOf(items[i].type)) {
@@ -203,7 +176,6 @@
                     break;
                 }
             }
-
             return !denied;
         });
 
@@ -211,21 +183,21 @@
             console.log('here');
         });
 
-        // uploader.on('filesQueued', function() {
-        //     uploader.sort(function( a, b ) {
-        //         if ( a.name < b.name )
-        //           return -1;
-        //         if ( a.name > b.name )
-        //           return 1;
-        //         return 0;
-        //     });
-        // });
+        uploader.on('filesQueued', function () {
+            uploader.sort(function (a, b) {
+                if (a.name < b.name)
+                    return -1;
+                if (a.name > b.name)
+                    return 1;
+                return 0;
+            });
+        });
 
         // 添加“添加文件”的按钮，
-        uploader.addButton({
-            id: '#filePicker2',
-            label: '继续添加'
-        });
+        // uploader.addButton({
+        //     id: '#filePicker2',
+        //     label: '继续添加'
+        // });
 
         uploader.on('ready', function () {
             window.uploader = uploader;
@@ -394,7 +366,6 @@
         // 负责view的销毁
         function removeFile(file) {
             var $li = $('#' + file.id);
-
             delete percentages[file.id];
             updateTotalProgress();
             $li.off().find('.file-panel').off().end().remove();
@@ -537,17 +508,27 @@
 
         };
 
+        uploader.on('uploadBeforeSend', function (obj, data, headers) {
+            data.linkId = $("input[name=videoId]").val()
+        });
+
+        uploader.on('uploadSuccess', function (file, response) {
+            if (response.code === 0) {
+                $("input[name=picId]").val(response.fileDTOList[0].fileId)
+            } else {
+                layer.msg(response.msg);
+            }
+        });
+
         uploader.on('all', function (type) {
             var stats;
             switch (type) {
                 case 'uploadFinished':
                     setState('confirm');
                     break;
-
                 case 'startUpload':
                     setState('uploading');
                     break;
-
                 case 'stopUpload':
                     setState('paused');
                     break;
