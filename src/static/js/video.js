@@ -129,6 +129,33 @@ function ajaxGetCateList() {
 }
 
 /**
+ * 广告倒计时
+ */
+function setTime() {
+    $djx = $("#djs");
+    var nowT = parseInt($djx.text());
+    if (nowT > 0) {
+        $djx.text(nowT - 1);
+        setTimeout('setTime()', 1000)
+    }
+}
+
+/**
+ * 播放正片
+ */
+function checkTimeOut(video, pic) {//后置广告倒计时
+    var it = setInterval(function () {
+        var nowT = parseInt($("#djs").text());
+        if (nowT <= 0) {
+            newVideo(video, pic)
+            clearInterval(it);
+            $("#daojs").empty()
+            return;
+        }
+    }, 1000)
+}
+
+/**
  * 获取视频详细
  * @param videoId
  */
@@ -175,7 +202,11 @@ function ajaxGetVideoInfo(videoId) {
                         pic += value.fileName + value.fileSuffix;
                     }
                 });
-                newVideo(video, pic);
+
+                // 播放广告
+                newVideo("http://www.lemon.com/video/test.mp4", "http://120.79.251.217:9002/uploads/big/469a8686b7e9091be50f51435f2637c5.jpg");
+                setTime()
+                checkTimeOut(video, pic)
 
                 // 点赞 收藏
                 if (isUp === 0) {
@@ -279,7 +310,7 @@ function ajaxPutUp(videoId) {
         },
         dataType: "json",
         beforeSend: function () {
-            layer.load(3, {time: 1 * 1000});
+            // layer.load(3, {time: 1 * 1000});
         },
         success: function (data) {
             if (data.code === 0) {
@@ -322,7 +353,7 @@ function ajaxPutCollect(videoId) {
         },
         dataType: "json",
         beforeSend: function () {
-            layer.load(3, {time: 1 * 1000});
+            // layer.load(3, {time: 1 * 1000});
         },
         success: function (data) {
             if (data.code === 0) {
