@@ -79,6 +79,10 @@ table {
     clip: rect(1px,1px,1px,1px);
 }
 
+.element-hidden {
+    display: none;
+}
+
 .upload-box {
     border: 3px dashed #e6e6e6;
 }

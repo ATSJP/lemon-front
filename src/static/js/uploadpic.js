@@ -516,6 +516,7 @@
             if (response.code === 0) {
                 $("input[name=picId]").val(response.fileDTOList[0].fileId)
             } else {
+                $upload.text("重新上传")
                 layer.msg(response.msg);
             }
         });

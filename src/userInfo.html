@@ -109,62 +109,34 @@
                 <div class="col-1">
 
                     <div class="section video empty full-rows host">
-                        <h3 class="section-title"><a href="/18796566/video" class="t">我的视频</a><span
+                        <h3 class="section-title">
+                            <a href="javascript:void(0)" class="t">我的视频</a><span
                             class="count">0</span>
-                            <div class="sec-empty-hint sec-empty-hint-host">
+                            <div class="sec-empty-hint sec-empty-hint-host" style="display:none;">
                                 还没有上传过视频哦~
                                 <a href="//member.bilibili.com/v/video/submit.html" target="_blank">
                                     立即上传
                                 </a>
                             </div>
                         </h3>
-                        <div class="content clearfix"></div>
+                        <div class="mainCont clearfix" id="gg" js-move="true">
+                            <div class="pic-list fl" js-tab="true">
+                                <ul class="pic-list__wrapper clearfix tab-cont__item tab-cont__cur" id="videoList">
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="section fav">
                         <h3 class="section-title">
                             <a href="#" class="t">我的收藏夹</a>
-                            <div class="mainCont clearfix" id="gg" js-move="true">
-                                <div class="pic-list fl" js-tab="true">
-                                    <ul class="pic-list__wrapper clearfix tab-cont__item tab-cont__cur" id="videoList2">
-                                        <li class="item">
-                                            <a href="http://www.lemon.com/v/play.html?playId=9" target="_blank"
-                                               class="img-link">
-                                                <img
-                                                    src="http://120.79.251.217:9002/uploads/big/4cecaae83148d290cbc084dbb92b7d9e.png"
-                                                    alt="#">
-                                                <span class="mask"></span>
-                                                <span class="time">08:01</span>
-                                            </a>
-                                            <div class="img-info">
-                                                <a href="http://www.lemon.com/v/play.html?playId=9">【洛克王国】征战大师局</a>
-                                                <div class="btm">
-                                                    <div class="user"><i></i>test</div>
-                                                    <div class="online"><i></i>0</div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="item">
-                                            <a href="http://www.lemon.com/v/play.html?playId=10" target="_blank"
-                                               class="img-link">
-                                                <img
-                                                    src="http://120.79.251.217:9002/uploads/big/cb48ada24732e86f0e7a25f3a77c2528.png"
-                                                    alt="#">
-                                                <span class="mask"></span>
-                                                <span class="time">15:01</span>
-                                            </a>
-                                            <div class="img-info">
-                                                <a href="http://www.lemon.com/v/play.html?playId=10">绝地求生动画电影</a>
-                                                <div class="btm">
-                                                    <div class="user"><i></i>test</div>
-                                                    <div class="online"><i></i>0</div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
                         </h3>
+                        <div class="mainCont clearfix" id="gg" js-move="true">
+                            <div class="pic-list fl" js-tab="true">
+                                <ul class="pic-list__wrapper clearfix tab-cont__item tab-cont__cur" id="videoList2">
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     <!--<div class="section album"><h3 class="section-title"><a href="/"-->
@@ -236,6 +208,7 @@
 <script>
     $(function () {
         initLoginUserForCenter();
+        ajaxGetUserVideo(1);
     })
 </script>
 </body>

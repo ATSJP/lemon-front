@@ -6,7 +6,7 @@ function ajaxGetIndexVideoRank() {
      * 播放率
      */
     $.ajax({
-        url: "http://www.lemon.com/a/video/getVideoOrderBySortKey/0",
+        url: "http://www.lemon.com/a/video/getVideoOrderRank/0",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -29,7 +29,7 @@ function ajaxGetIndexVideoRank() {
      * 评价数
      */
     $.ajax({
-        url: "http://www.lemon.com/a/video/getVideoOrderBySortKey/1",
+        url: "http://www.lemon.com/a/video/getVideoOrderRank/1",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -72,7 +72,7 @@ function ajaxGetVideoList(categoryId, pageIndex, view) {
 
                     html += "<li class=\"item\">\n" +
                         "                        <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
-                        "                            <img src=\"http://120.79.251.217:9002/uploads/big/" + bizFileDTOList[0].fileName + bizFileDTOList[0].fileSuffix + "\"\n" +
+                        "                            <img src=\"http://www.lemon.com/image/" + bizFileDTOList[0].fileName + bizFileDTOList[0].fileSuffix + "\"\n" +
                         "                                 alt=\"#\">\n" +
                         "                            <span class=\"mask\"></span>\n" +
                         "                            <span class=\"time\">" + videoDetailDTO.time + "</span>\n" +
@@ -193,7 +193,7 @@ function ajaxGetVideoInfo(videoId) {
 
                 // 视频
                 var video = "http://www.lemon.com/video/";
-                var pic = "http://120.79.251.217:9002/uploads/big/";
+                var pic = "http://www.lemon.com/image/";
                 $.each(bizFileDTOList, function (index, value) {
                     if (value.linkType === 0) {
                         video += value.fileName + value.fileSuffix;
