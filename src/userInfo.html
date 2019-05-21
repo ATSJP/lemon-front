@@ -30,8 +30,9 @@
             </div>
 
             <div class="header-top__user">
-                <div class="login-box" >
-                    <a href="javascript:void(0)" style="color:palevioletred" onclick="window.open('http://www.lemon.com/userInfo.html')" id="isLogin">test</a>
+                <div class="login-box">
+                    <a href="javascript:void(0)" style="color:palevioletred"
+                       onclick="window.open('http://www.lemon.com/userInfo.html')" id="isLogin">test</a>
                 </div>
 
                 <div class="user-post">
@@ -80,10 +81,10 @@
                     <a href="/userInfo.html"
                        class="n-btn n-index n-fans n-404 router-link-exact-active router-link-active active">
                         <span class="iconfont icon-ic_home"></span><span class="n-text">主页</span></a>
-                    <a href="/favlist" class="n-btn n-favlist">
+                    <a href="javascript:void(0)" class="n-btn n-favlist">
                         <span class="iconfont icon-ic_collect"></span>
                         <span class="n-text">收藏</span>
-                        <span class="n-num"> 3 </span>
+                        <span class="n-num"></span>
                     </a>
                     <a href="/setting" class="n-btn n-setting">
                         <span class="iconfont icon-ic_setting"></span>
@@ -114,9 +115,7 @@
                             class="count">0</span>
                             <div class="sec-empty-hint sec-empty-hint-host" style="display:none;">
                                 还没有上传过视频哦~
-                                <a href="//member.bilibili.com/v/video/submit.html" target="_blank">
-                                    立即上传
-                                </a>
+
                             </div>
                         </h3>
                         <div class="mainCont clearfix" id="gg" js-move="true">
@@ -209,6 +208,11 @@
     $(function () {
         initLoginUserForCenter();
         ajaxGetUserVideo(1);
+        ajaxGetCollectVideo(1);
+        $(".n-favlist").click(function () {
+            $(".section-title")[0].scrollIntoView();
+        })
+
     })
 </script>
 </body>

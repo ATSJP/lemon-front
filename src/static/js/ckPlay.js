@@ -79,9 +79,20 @@ function errorHandler() {
 
 }
 
+function timeHandler(t) {
+
+}
+
 function playHandler() {
     // player.animateResume();//继续播放所有弹幕
+    if (player.vars.video.indexOf("adv") === -1) {
+        ajaxPlayRecord()
+    }
 }
+
+// function clickEventHandler(str) {
+//
+// }
 
 function pauseHandler() {
     // player.animatePause();//暂停所有弹幕
@@ -107,8 +118,8 @@ function changeVideo(videoUrl, picUrl) {
         // advertisements: 'http://www.lemon.com/restful/ad.json',
     }
     //判断是需要重新加载播放器还是直接换新地址
-    if(player.playerType == 'html5video') {
-        if(player.getFileExt(videoUrl) == '.flv' || player.getFileExt(videoUrl) == '.m3u8' || player.getFileExt(videoUrl) == '.f4v' || videoUrl.substr(0, 4) == 'rtmp') {
+    if (player.playerType == 'html5video') {
+        if (player.getFileExt(videoUrl) == '.flv' || player.getFileExt(videoUrl) == '.m3u8' || player.getFileExt(videoUrl) == '.f4v' || videoUrl.substr(0, 4) == 'rtmp') {
             player.removeChild();
 
             player = null;
@@ -118,7 +129,7 @@ function changeVideo(videoUrl, picUrl) {
             player.newVideo(newVideoObject);
         }
     } else {
-        if(player.getFileExt(videoUrl) == '.mp4' || player.getFileExt(videoUrl) == '.webm' || player.getFileExt(videoUrl) == '.ogg') {
+        if (player.getFileExt(videoUrl) == '.mp4' || player.getFileExt(videoUrl) == '.webm' || player.getFileExt(videoUrl) == '.ogg') {
             player = null;
             player = new ckplayer();
             player.embed(newVideoObject);

@@ -204,7 +204,7 @@ function ajaxGetVideoInfo(videoId) {
                 });
 
                 // 播放广告
-                newVideo("http://www.lemon.com/video/test.mp4", "http://www.lemon.com/static/adv/adv.png");
+                newVideo("http://www.lemon.com/adv/test.mp4", "http://www.lemon.com/static/adv/adv.png");
                 setTime()
                 checkTimeOut(video, "")
 
@@ -368,6 +368,59 @@ function ajaxPutCollect(videoId) {
                 layer.msg('操作成功', {offset: 't'});
             } else {
                 layer.msg(data.msg);
+            }
+        }
+    })
+}
+
+
+function ajaxPlayRecord() {
+    $.ajax({
+        url: "http://www.lemon.com/a/video/play",
+        type: "POST",
+        data: {
+            "videoId": getQueryString("playId"),
+            "uid": getCookie("uid"),
+            "sid": getCookie("sid"),
+        },
+        dataType: "json",
+        beforeSend: function () {
+            layer.load(3, {time: 1 * 1000});
+        },
+        success: function (data) {
+            if (data.code === 0) {
+                var html = "";
+                if (data.videoDTOList.length === 0) {
+                    $(".sec-empty-hint").show();
+                    return
+                }
+                $(".n-num").text(data.videoDTOList.length);
+
+                $.each(data.videoDTOList, function (index, value) {
+                    var videoDetailDTO = value.videoDetailDTO
+                    var picFile;
+                    $.each(value.bizFileDTOList, function (index, value) {
+                        if (value.linkType === 1) {
+                            picFile = value;
+                        }
+                    })
+                    html += "<li class=\"item\">\n" +
+                        "                        <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
+                        "                            <img src=\"http://www.lemon.com/image/" + picFile.fileName + picFile.fileSuffix + "\"\n" +
+                        "                                 alt=\"#\">\n" +
+                        "                            <span class=\"mask\"></span>\n" +
+                        "                            <span class=\"time\">" + videoDetailDTO.time + "</span>\n" +
+                        "                        </a>\n" +
+                        "                        <div class=\"img-info\">\n" +
+                        "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <div class=\"btm\">\n" +
+                        "                                <div class=\"user\"><i></i>" + videoDetailDTO.userName + "</div>\n" +
+                        "                                <div class=\"online\"><i></i>" + videoDetailDTO.playNum + "</div>\n" +
+                        "                            </div>\n" +
+                        "                        </div>\n" +
+                        "                    </li>";
+                })
+                $("#videoList2").html(html)
             }
         }
     })
