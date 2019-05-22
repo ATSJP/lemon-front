@@ -57,7 +57,7 @@ function ajaxGetIndexVideoRank() {
  */
 function ajaxGetVideoList(categoryId, pageIndex, view) {
     $.ajax({
-        url: "http://www.lemon.com/a/video/getVideoList/" + categoryId + "/" + pageIndex + "/20",
+        url: "http://www.lemon.com/a/video/getVideoList/" + categoryId + "/" + pageIndex + "/8",
         type: "GET",
         dataType: "json",
         beforeSend: function () {
@@ -104,7 +104,7 @@ function ajaxGetCateList() {
             var html1 = "";
             var toolbar = "";
             $.each(data.categoryDTOList, function (index, value) {
-                var head = "<li class=\"item\"><a href=\"#" + value.categoryId + "\" class=\"link\"><div class=\"num\"><i>0</i></div>" + value.categoryName + "</a>";
+                var head = "<li class=\"item\"><a href=\"#" + value.categoryId + "\" class=\"link\"><div class=\"num\"><i>" + Math.floor(Math.random() * 100) + "</i></div>" + value.categoryName + "</a>";
                 var body = "<ul class=\"nav-item__hover\">";
                 var headEnd = "</li>";
                 var bodyEnd = "</ul>";
@@ -182,7 +182,7 @@ function ajaxGetVideoInfo(videoId) {
                 $(".view").html(videoDetailDTO.playNum + "播放 · ");
                 $(".dm").html(remarkDTO.length + "弹幕");
                 $(".username").html(videoDetailDTO.userName);
-                $(".username").attr('href', '//www.lemon.com/userInfo.html?uid=' + videoDetailDTO.userId);
+                $(".username").attr('href', '//www.lemon.com/userInfo.html?uid=' + videoDetailDTO.userId + "&name=" + videoDetailDTO.userName);
 
                 // 分类
                 $("#parentCate").html(categoryDTO.categoryName).attr('href', '//www.lemon.com/v/list.html?cid=' + categoryDTO.categoryId);

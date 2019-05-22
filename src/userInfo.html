@@ -86,7 +86,7 @@
                         <span class="n-text">收藏</span>
                         <span class="n-num"></span>
                     </a>
-                    <a href="/setting" class="n-btn n-setting">
+                    <a href="javascript:void(0)" class="n-btn n-setting">
                         <span class="iconfont icon-ic_setting"></span>
                         <span class="n-text">设置</span>
                     </a>
@@ -206,13 +206,31 @@
 <script src="static/js/video.js"></script>
 <script>
     $(function () {
-        initLoginUserForCenter();
-        ajaxGetUserVideo(1);
-        ajaxGetCollectVideo(1);
+        // 检查登陆状态
+        checkStatus();
+
+        var uidToSee = getQueryString("uid");
+        var uid;
+        var name;
+        if (uidToSee !== "" && uidToSee !== null) {
+            uid = uidToSee
+            name = getQueryString("name");
+            $(".n-setting").hide();
+            $("#h-sign").attr("disabled", true);
+        } else {
+            uid = getCookie("uid");
+            name = getCookie('name');
+        }
+
+        initLoginUserForCenter(name);
+        ajaxGetUserVideo(1, uid);
+        ajaxGetCollectVideo(1, uid);
         $(".n-favlist").click(function () {
             $(".section-title")[0].scrollIntoView();
         })
-
+        $(".n-setting").click(function () {
+            openSetting();
+        })
     })
 </script>
 </body>

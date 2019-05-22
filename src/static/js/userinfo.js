@@ -1,14 +1,7 @@
-var name = getCookie("name");
-if (name !== undefined && name !== '') {
-    $("#h-name").text(name);
-} else {
-    $("#h-name").text("未登录");
-}
-
-function initLoginUserForCenter() {
-    var name = getCookie('name');
+function initLoginUserForCenter(name) {
     if (name !== undefined && name !== '') {
         $("#isLogin").text(name).show();
+        $("#h-name").text(name);
         $("#loginOut").show();
     } else {
         $("#isLogin").hide();
@@ -25,12 +18,12 @@ function initLoginUserForCenter() {
     }
 }
 
-function ajaxGetUserVideo(pageIndex) {
+function ajaxGetUserVideo(pageIndex, uid) {
     $.ajax({
-        url: "http://www.lemon.com/a/video/getVideoListByLoginId/" + pageIndex + "/20",
+        url: "http://www.lemon.com/a/video/getVideoListByLoginId/" + pageIndex + "/8",
         type: "GET",
         data: {
-            "uid": getCookie("uid")
+            "uid": uid
         },
         dataType: "json",
         beforeSend: function () {
@@ -73,12 +66,12 @@ function ajaxGetUserVideo(pageIndex) {
     })
 }
 
-function ajaxGetCollectVideo(pageIndex) {
+function ajaxGetCollectVideo(pageIndex, uid) {
     $.ajax({
-        url: "http://www.lemon.com/a/video/getCollectVideoListByLoginId/" + pageIndex + "/20",
+        url: "http://www.lemon.com/a/video/getCollectVideoListByLoginId/" + pageIndex + "/8",
         type: "GET",
         data: {
-            "uid": getCookie("uid")
+            "uid": uid
         },
         dataType: "json",
         beforeSend: function () {
@@ -119,6 +112,20 @@ function ajaxGetCollectVideo(pageIndex) {
                 })
                 $("#videoList2").html(html)
             }
+        }
+    })
+}
+
+function openSetting() {
+    layer.open({
+        title: '修改个人信息',
+        type: 2,
+        resize: true,
+        area: ['800px', '600px'],
+        move: true,
+        content: ['http://www.lemon.com/user/setting.html', 'no'],
+        yes: function (index, layero) {
+//                layero.find('#draftClue').submit();
         }
     })
 }
