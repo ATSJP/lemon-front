@@ -116,6 +116,28 @@ function ajaxGetCollectVideo(pageIndex, uid) {
     })
 }
 
+function ajaxGetUserInfo(uid) {
+    $.ajax({
+        url: "http://www.lemon.com/u/user",
+        type: "GET",
+        data: {
+            "uid": uid
+        },
+        dataType: "json",
+        beforeSend: function () {
+            layer.load(3, {time: 1 * 1000});
+        },
+        success: function (data) {
+            if (data.code === 0) {
+                var html = "";
+                if (data.userInfoDTO.userType === 1) {
+                    $("#h-name").append("&nbsp;<span class=\"layui-badge\">会员</span>")
+                }
+            }
+        }
+    })
+}
+
 function openSetting() {
     layer.open({
         title: '修改个人信息',
@@ -126,6 +148,23 @@ function openSetting() {
         content: ['http://www.lemon.com/user/setting.html', 'no'],
         yes: function (index, layero) {
 //                layero.find('#draftClue').submit();
+        }
+    })
+}
+
+function openBigVip() {
+    layer.open({
+        title: '充值',
+        type: 2,
+        resize: true,
+        area: ['700px', '350px'],
+        move: true,
+        content: ['http://www.lemon.com/user/bigVip.html', 'no'],
+        yes: function (index, layero) {
+            layer.close(index)
+        },
+        cancel: function () {
+            layer.msg("交易取消")
         }
     })
 }

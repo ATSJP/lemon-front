@@ -203,10 +203,34 @@ function ajaxGetVideoInfo(videoId) {
                     }
                 });
 
-                // 播放广告
-                newVideo("http://www.lemon.com/adv/test.mp4", "http://www.lemon.com/static/adv/adv.png");
-                setTime()
-                checkTimeOut(video, "")
+                // 会员免广告，检测
+                var isNeedAdv = true;
+                $.ajax({
+                    url: "http://www.lemon.com/u/user",
+                    type: "GET",
+                    data: {
+                        "uid": getCookie("uid")
+                    },
+                    async: false,
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code === 0) {
+                            if (data.userInfoDTO.userType === 1) {
+                                isNeedAdv = false;
+                            }
+                        }
+                    }
+                })
+
+                if (isNeedAdv) {
+                    // 播放广告
+                    newVideo("http://www.lemon.com/adv/test.mp4", "http://www.lemon.com/static/adv/adv.png");
+                    setTime()
+                    checkTimeOut(video, "")
+                } else {
+                    $("#yytf").hide();
+                    newVideo(video, "")
+                }
 
                 // 点赞 收藏
                 if (isUp === 0) {
@@ -373,7 +397,6 @@ function ajaxPutCollect(videoId) {
     })
 }
 
-
 function ajaxPlayRecord() {
     $.ajax({
         url: "http://www.lemon.com/a/video/play",
@@ -442,3 +465,54 @@ $(".post").click(function () {
         }
     })
 })
+
+/**
+ * 搜索
+ */
+function ajaxSearch(keyWord) {
+    $.ajax({
+        url: "http://www.lemon.com/a/video/search",
+        type: "GET",
+        data: {
+            "keyWord": keyWord
+        },
+        dataType: "json",
+        beforeSend: function () {
+            layer.load(3, {time: 1 * 1000});
+        },
+        success: function (data) {
+            if (data.code === 0) {
+                if (data.videoDTOList != null) {
+                    var html = "";
+                    $.each(data.videoDTOList, function (index, value) {
+                        var videoDetailDTO = value.videoDetailDTO
+                        var bizFileDTOList = value.bizFileDTOList
+                        var picFile;
+                        $.each(value.bizFileDTOList, function (index, value) {
+                            if (value.linkType === 1) {
+                                picFile = value;
+                            }
+                        })
+                        html += "<li class=\"item\">\n" +
+                            "                        <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
+                            "                            <img src=\"http://www.lemon.com/image/" + picFile.fileName + picFile.fileSuffix + "\"\n" +
+                            "                                 alt=\"#\">\n" +
+                            "                            <span class=\"mask\"></span>\n" +
+                            "                            <span class=\"time\">" + videoDetailDTO.time + "</span>\n" +
+                            "                        </a>\n" +
+                            "                        <div class=\"img-info\">\n" +
+                            "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
+                            "                            <div class=\"btm\">\n" +
+                            "                                <div class=\"user\"><i></i>" + videoDetailDTO.userName + "</div>\n" +
+                            "                                <div class=\"online\"><i></i>" + videoDetailDTO.playNum + "</div>\n" +
+                            "                            </div>\n" +
+                            "                        </div>\n" +
+                            "                    </li>";
+                    })
+                    $("#videoList1").append(html)
+                }
+
+            }
+        }
+    })
+}

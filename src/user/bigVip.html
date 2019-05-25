@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bigVip.html</title>
+    <link rel="shortcut icon" href="../static/favicons/1.png">
+    <link href="../static/css/bigvip.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/plugin/layui/css/layui.css"
+          type="text/css">
+</head>
+<body>
+<div class="pay-for-money-list">
+    <div class="pay-for-money-item pay-for-money-item-active" id="box1">
+        <span class="pay-for-money-dis">
+        限时优惠
+       </span>
+        <p class="pay-for-money-price">
+            ¥124/年
+            <i class="pay-for-money-org-price">¥144</i>
+        </p>
+        <p class="pay-for-money-text">连续包年</p>
+    </div>
+    <div class="pay-for-money-item" id="box2">
+        <span class="pay-for-money-dis">
+        8折
+      </span>
+        <p class="pay-for-money-price">
+            ¥28.8/季
+            <i class="pay-for-money-org-price">¥36</i></p>
+        <p class="pay-for-money-text">连续包季</p>
+    </div>
+    <div class="pay-for-money-item" id="box3">
+        <span class="pay-for-money-dis">
+        立减
+      </span>
+        <p class="pay-for-money-price">
+            ¥11/月
+            <i class="pay-for-money-org-price">¥12</i></p>
+        <p class="pay-for-money-text">连续包月</p>
+    </div>
+</div>
+<div align="center" class="pay-for-money-remark">可支持微信、支付宝支付</div>
+<div align="center" style="margin: 50px;">
+    <button class="layui-btn">立即充值</button>
+</div>
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/base.js"></script>
+<!--<script src="../static/plugin/layui/layui.all.js"></script>-->
+<script>
+    var checkType = 1;
+    $("#box1").click(function () {
+        $("#box1").addClass("pay-for-money-item-active");
+        $("#box2").removeClass("pay-for-money-item-active");
+        $("#box3").removeClass("pay-for-money-item-active");
+        checkType = 1;
+    })
+    $("#box2").click(function () {
+        $("#box1").removeClass("pay-for-money-item-active");
+        $("#box2").addClass("pay-for-money-item-active");
+        $("#box3").removeClass("pay-for-money-item-active");
+        checkType = 2;
+    })
+    $("#box3").click(function () {
+        $("#box1").removeClass("pay-for-money-item-active");
+        $("#box2").removeClass("pay-for-money-item-active");
+        $("#box3").addClass("pay-for-money-item-active");
+        checkType = 3;
+    })
+
+    //注意：parent 是 JS 自带的全局对象，可用于操作父页面
+    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+
+    $(".layui-btn").click(function () {
+        parent.window.open("http://www.lemon.com/a/toPay?prodId=" + checkType + "&uid=" + getCookie("uid"));
+        parent.layer.close(index);
+        // 墨绿深蓝风
+        parent.layer.alert('请至支付宝页面完成支付后，刷新此页面', {
+            skin: 'layui-layer-molv' //样式类名
+            , closeBtn: 0
+        }, function () {
+            // parent.layer.alert('偶吧深蓝style', {
+            //     skin: 'layui-layer-lan'
+            //     ,closeBtn: 0
+            //     ,anim: 4 //动画类型
+            // });
+        });
+    })
+
+    // 给父页面传值
+    $('#transmit').on('click', function () {
+        parent.$('#parentIframe').text('我被改变了');
+        parent.layer.tips('Look here', '#parentIframe', {time: 5000});
+        parent.layer.close(index);
+    });
+
+</script>
+</body>
+</html>

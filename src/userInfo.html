@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="static/css/userInfo.css">
     <link rel="stylesheet" href="static/css/reset.css">
     <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="../static/plugin/layui/css/layui.css"
+          type="text/css">
 </head>
 <body style="">
 
@@ -89,6 +91,10 @@
                     <a href="javascript:void(0)" class="n-btn n-setting">
                         <span class="iconfont icon-ic_setting"></span>
                         <span class="n-text">设置</span>
+                    </a>
+                    <a href="javascript:void(0)" class="n-btn n-bigVip">
+                        <span class="iconfont icon-ic_setting"></span>
+                        <span class="n-text">会员</span>
                     </a>
                 </div>
 
@@ -225,12 +231,50 @@
         initLoginUserForCenter(name);
         ajaxGetUserVideo(1, uid);
         ajaxGetCollectVideo(1, uid);
+        ajaxGetUserInfo(uid);
         $(".n-favlist").click(function () {
             $(".section-title")[0].scrollIntoView();
         })
         $(".n-setting").click(function () {
             openSetting();
         })
+        $(".n-bigVip").click(function () {
+            $.ajax({
+                url: "http://www.lemon.com/u/user",
+                type: "GET",
+                data: {
+                    "uid": uid
+                },
+                dataType: "json",
+                beforeSend: function () {
+                    layer.load(3, {time: 1 * 1000});
+                },
+                success: function (data) {
+                    if (data.code === 0) {
+                        var html = "";
+                        if (data.userInfoDTO.userType === 1) {
+                            layer.alert('您已经成为会员了', {
+                                skin: 'layui-layer-lan'
+                                , closeBtn: 0
+                                , anim: 0 //动画类型
+                            });
+                        } else {
+                            openBigVip();
+                        }
+                    }
+                }
+            })
+        })
+
+        // 支付回调
+        var paySuccess = getQueryString("state");
+        if (paySuccess === 'paysuccess') {
+            layer.alert('您以成为尊贵的会员', {
+                skin: 'layui-layer-lan'
+                , closeBtn: 0
+                , anim: 0 //动画类型
+            });
+        }
     })
 </script>
 </body>

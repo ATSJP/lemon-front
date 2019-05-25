@@ -1,0 +1,329 @@
+.pay-for-money-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 80px 80px 5px 80px;
+}
+
+.pay-for-money-item {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #ccd0d7;
+    padding: 1px;
+    border-radius: 4px;
+    width: 160px;
+    height: 66px;
+    cursor: pointer;
+}
+
+.pay-for-money-item-active {
+    padding: 0px;
+    border: 2px solid #00a1d6;
+}
+
+.pay-for-money-dis {
+    position: absolute;
+    top: -12px;
+    right: -2px;
+    background: #f25d8e;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    border-radius: 100px;
+    padding: 1px 4px;
+    z-index: 100;
+}
+
+.pay-for-money-price {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #222222;
+    text-align: center;
+}
+
+.pay-for-money-item-active .pay-for-money-price {
+    color: #00a1d6;
+}
+
+.pay-for-money-org-price {
+    font-size: 12px;
+    color: #99a2aa;
+    text-decoration: line-through;
+    vertical-align: middle;
+}
+
+.pay-for-money-text {
+    font-size: 12px;
+    color: #99a2aa;
+    text-align: center;
+}
+
+.pay-for-money-remark {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #99a2aa;
+}
+
+.pay-for-money-check {
+    margin-top: 10px;
+}
+
+.pay-for-money-check .el-checkbox__label {
+    font-size: 12px !important;
+    color: #99a2aa !important;
+    font-weight: normal;
+}
+
+.pay-for-money-check .el-checkbox__input.is-checked .el-checkbox__inner {
+    background-color: #00a1d6;
+    border-color: #00a1d6;
+}
+
+.pay-for-money-check .el-checkbox__input.is-checked.is-focus .el-checkbox__inner {
+    background-color: #00a1d6;
+    border-color: #00a1d6;
+}
+
+.pay-for-money-check .el-checkbox__input.is-focus .el-checkbox__inner {
+    border-color: #bec3cc;
+}
+
+.el-checkbox__inner:hover {
+    border-color: #00a1d6;
+}
+
+.pay-for-money-voucher-wrpapper {
+    margin-top: 20px;
+}
+
+.pay-for-money-vouche-name {
+    position: relative;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #6d757a;
+}
+
+.pay-for-money-vouche-name-disable {
+    opacity: 0.3;
+}
+
+.pay-for-money-vouche-name .el-select--mini {
+    width: 432px;
+    height: 24px;
+    border-color: #ccd0d7;
+}
+
+.el-select:hover .el-input__inner {
+    border-color: #d8dce5;
+}
+
+.pay-for-money-vouche-name .el-input.is-disabled .el-input__inner {
+    background-color: #ffffff;
+    color: #6d757a;
+}
+
+.pay-for-money-vouche-name .el-select .el-input.is-focus .el-input__inner {
+    border-color: #d8dce5;
+    border-bottom-color: transparent;
+    border-radius: 4px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.el-select-dropdown__item.selected {
+    color: #00a1d6;
+    font-weight: normal;
+}
+
+.el-select-dropdown__item {
+    width: 430px;
+    color: #222222;
+    font-size: 12px;
+    padding: 0 15px;
+}
+
+.el-select-dropdown__item:hover {
+    background: #e5e9ef;
+}
+
+.el-select-dropdown__item:hover span {
+    color: #00a1d6 !important;
+}
+
+.el-select-dropdown {
+    border-color: #d8dce5;
+    border-radius: 4px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    margin-top: 0px !important;
+    border-top-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.el-select-dropdown .popper__arrow {
+    display: none !important;
+}
+
+.pay-for-money-payment-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 24px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 510px;
+    height: 154px;
+    background: #ffffff;
+    border: 1px solid #e5e9ef;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.pay-for-money-payment-left {
+    width: 100px;
+    height: 100%;
+    background: #f4f5f7;
+}
+
+.pay-for-money-payment-right {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.pay-for-money-payment-left-item {
+    cursor: pointer;
+    float: left;
+    width: 100px;
+    height: 40px;
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #6d757a;
+    text-align: center;
+    line-height: 40px;
+}
+
+.pay-for-money-payment-left-item-active {
+    background: #ffffff;
+}
+
+.pay-for-qr-wrapper {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 22px 20px 22px 55px;
+}
+
+.pay-for-qr-code {
+    float: left;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 110px;
+    height: 110px;
+    border: 1px solid #e5e9ef;
+    border-radius: 1px;
+    padding: 5px;
+    margin-right: 20px;
+}
+
+.pay-for-qr-code img {
+    background: url(https://s1.hdslb.com/bfs/static/account-vip/static/img/code_fail.f41d4f5.png) no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+
+.pay-for-qr-code-fail {
+    padding: 0;
+}
+
+.pay-for-qr-style {
+    width: 108px;
+    height: 108px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.pay-for-qr-style svg {
+    width: 100%;
+    height: 100%;
+}
+
+.pay-for-qr-num {
+    float: left;
+    min-width: 115px;
+    margin-top: 20px;
+    font-family: MicrosoftYaHei;
+    font-size: 28px;
+    color: #00a1d6;
+}
+
+.pay-for-qr-num i {
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #6d757a;
+}
+
+.pay-for-qr-num-fail {
+    float: left;
+    min-width: 115px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6d757a;
+}
+
+.pay-for-payment-txt {
+    float: left;
+    font-size: 12px;
+    color: #6d757a;
+    margin-top: 8px;
+}
+
+.pay-for-other-wrapper {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 25px;
+}
+
+.pay-for-other-wrapper p {
+    font-family: MicrosoftYaHei;
+    font-size: 12px;
+    color: #6d757a;
+    text-align: center;
+    line-height: 20px;
+}
+
+.pay-for-other-btn {
+    cursor: pointer;
+    width: 150px;
+    height: 32px;
+    background: #00a1d6;
+    border-radius: 4px;
+    font-family: MicrosoftYaHei;
+    font-size: 14px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 32px;
+    margin: 0 auto;
+    margin-top: 32px;
+}
+
+.pay-for-other-btn:hover {
+    background: #00b5e5;
+}
