@@ -66,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <div class="header-title">哔哩哔哩 (゜-゜)つロ 干杯~</div>
+            <div class="header-title"></div>
         </div>
     </div>
 </header>
@@ -357,10 +357,10 @@
         // 加载分类
         ajaxGetCateList();
 
-        ajaxGetVideoList(1, 1, "videoList1");
-        ajaxGetVideoList(2, 1, "videoList2");
-        ajaxGetVideoList(3, 1, "videoList3");
-        ajaxGetVideoList(4, 1, "videoList4");
+        ajaxGetVideoList(10, 1, "videoList1");
+        ajaxGetVideoList(11, 1, "videoList2");
+        ajaxGetVideoList(12, 1, "videoList3");
+        ajaxGetVideoList(13, 1, "videoList4");
 
         ajaxGetIndexVideoRank();
 
@@ -368,7 +368,6 @@
             window.location.href = "http://www.lemon.com/search.html?keyWord=" + $("#searchValue").val();
         })
     })
-
 </script>
 </body>
 </html>

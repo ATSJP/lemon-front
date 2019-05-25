@@ -66,95 +66,10 @@
                     </div>
                 </div>
             </div>
-            <div class="header-title">哔哩哔哩 (゜-゜)つロ 干杯~</div>
+            <div class="header-title"></div>
         </div>
     </div>
 </header>
-
-<nav id="nav">
-    <div class="page-width clearfix">
-        <ul class="nav-list">
-            <li class="item item-home">
-                <a href="http://www.lemon.com" class="link">首页</a>
-            </li>
-
-            <!--<li class="item item-square">-->
-            <!--<a href="#" class="link">广场</a>-->
-            <!--<div class="nav-square__hover">-->
-            <!--<ul>-->
-            <!--<li><a href="#"><i class="icon-activity"></i>活动中心</a></li>-->
-            <!--<li><a href="#"><i class="icon-game"></i>游戏中心</a></li>-->
-            <!--<li><a href="#"><i class="icon-news"></i>新闻中心</a></li>-->
-            <!--<li><a href="#"><i class="icon-friend"></i>画友</a></li>-->
-            <!--<li><a href="#"><i class="icon-tv"></i>芒果TV</a></li>-->
-            <!--</ul>&lt;!&ndash;-->
-            <!--<a href="#" class="activity"><img src="images/cont/nav-square__img.jpg" alt="#"></a> &ndash;&gt;-->
-            <!--</div>-->
-            <!--</li>-->
-            <!--<li class="item item-live">-->
-            <!--<a href="#" class="link">直播</a>-->
-            <!--<ul class="nav-item__hover">-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>推荐主播<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>手机直播<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>绘画专区<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>唱见舞见<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>御宅文化<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>单机联机<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>网络游戏<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>电子竞技<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>手游直播<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--<li>-->
-            <!--<a href="#">-->
-            <!--<em>放映厅<i></i></em>-->
-            <!--</a>-->
-            <!--</li>-->
-            <!--</ul>-->
-            <!--</li>-->
-            <!--<li class="item item-room">-->
-            <!--<a href="#" class="link">小黑屋</a>-->
-            <!--</li>-->
-
-
-        </ul>
-        <div class="nav-gif"></div>
-    </div>
-</nav>
 
 <div id="banner">
 
@@ -233,6 +148,9 @@
 <script src="static/js/video.js"></script>
 <script>
     $(function () {
+        // 检查登陆状态
+        checkStatus();
+
         var keyWord = getQueryString1("keyWord");
         ajaxSearch(decodeURI(keyWord))
         $("#searchBtn").click(function () {

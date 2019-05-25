@@ -109,7 +109,7 @@ function ajaxGetCateList() {
                 var headEnd = "</li>";
                 var bodyEnd = "</ul>";
                 $.each(value.subCategoryDTOList, function (index, value) {
-                    body += "<li><a href=\"#\"+ value.categoryId +\"\"><em>" + value.categoryName + "<i></i></em></a></li>";
+                    body += "<li><a href=\"http://www.lemon.com/v/list.html?categoryId=" + value.categoryId + "\"><em>" + value.categoryName + "<i></i></em></a></li>";
                 });
                 html1 += head + body + bodyEnd + headEnd;
                 toolbar += "<a href=\"#\">" + value.categoryName + "</a>";
