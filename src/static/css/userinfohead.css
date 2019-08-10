@@ -285,7 +285,7 @@
     height: 102px;
     color: #99a2aa;
     border: none;
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/396脳102-normal.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/396脳102-normal.png);
     background-repeat: no-repeat;
     transition: background-image .2s ease, color .2s ease
 }
@@ -303,7 +303,7 @@
 
 #space-theme .toutu-item.upload-toutu:hover {
     color: #fff;
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/396脳102-hover.png)
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/396脳102-hover.png)
 }
 
 #space-theme .toutu-item.upload-toutu:hover .upload-icon {
@@ -861,7 +861,7 @@
 }
 
 #space-theme #theme-buy-success {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/theme-buy-success.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/theme-buy-success.png);
     background-repeat: no-repeat;
     background-position: center 140px
 }
@@ -871,7 +871,7 @@
 }
 
 #space-theme #theme-buy-fail {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/theme-buy-processing.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/theme-buy-processing.png);
     background-repeat: no-repeat;
     background-position: center 160px
 }
@@ -961,11 +961,11 @@
     #space-theme .toutu-item.upload-toutu {
         width: 296px;
         height: 96px;
-        background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/296x96-normal.png)
+        background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/296x96-normal.png)
     }
 
     #space-theme .toutu-item.upload-toutu:hover {
-        background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/296x96-hover.png)
+        background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/296x96-hover.png)
     }
 
     #space-theme .theme-ann {
@@ -1011,7 +1011,7 @@
 }
 
 .h .h-inner {
-    background-image: url(//www.lemon.com/static/images/header_bg.jpg);
+    background-image: url(//lemon.shijianpeng.top/static/images/header_bg.jpg);
     background-position: 50%;
     background-size: cover;
     transition: background-image .2s ease, background-size 1s ease;
@@ -1024,7 +1024,7 @@
 }
 
 .h .h-user .user-auth-subscript.fool-day {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/fool-day.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/fool-day.png);
     background-position: 0 0
 }
 
@@ -1053,7 +1053,7 @@
     height: 16px;
     margin-right: 5px;
     vertical-align: middle;
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/level.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/level.png);
     background-repeat: no-repeat;
     background-position: 999px 999px
 }
@@ -1406,7 +1406,7 @@
 }
 
 .h .space-theme-trigger {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/theme-trigger-new.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/theme-trigger-new.png);
     background-position: 0 0;
     border-radius: 0 4px 0 0;
     cursor: pointer;
@@ -1903,7 +1903,7 @@ a:hover {
 }
 
 .s-body.loading {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/loadTV.gif);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/loadTV.gif);
     background-position: 50%;
     background-repeat: no-repeat;
     height: 200px
@@ -1984,7 +1984,7 @@ input::-ms-clear {
 }
 
 .col-full .section.empty:after, .col-full .section.private:after {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/nodata02.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/nodata02.png);
     background-position: 50%;
     background-repeat: no-repeat;
     border-radius: 4px;
@@ -2009,7 +2009,7 @@ input::-ms-clear {
 }
 
 .section.loading .content {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/loadTV.gif);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/loadTV.gif);
     background-position: 50%;
     background-repeat: no-repeat;
     text-indent: -9999px;
@@ -2267,7 +2267,7 @@ input::-ms-clear {
 }
 
 .small-item .cover {
-    background: url(//www.lemon.com/bfs/static/jinkela/space/asserts/video-placeholder.png) 50%;
+    background: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/video-placeholder.png) 50%;
     background-size: cover;
     border-radius: 4px;
     display: block;
@@ -2409,7 +2409,7 @@ input::-ms-clear {
 }
 
 .large-item .cover {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/video-placeholder.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/video-placeholder.png);
     background-position: 50%;
     background-size: cover;
     display: block;
@@ -2540,7 +2540,7 @@ input::-ms-clear {
 }
 
 .list-item .cover {
-    background: url(//www.lemon.com/bfs/static/jinkela/space/asserts/video-placeholder.png) 50%;
+    background: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/video-placeholder.png) 50%;
     background-size: cover;
     border-radius: 4px;
     display: block;
@@ -2764,7 +2764,7 @@ input::-ms-clear {
 }
 
 .not-allow {
-    background: url(//www.lemon.com/bfs/static/jinkela/space/asserts/2233.png) 50% no-repeat;
+    background: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/2233.png) 50% no-repeat;
     width: 340px;
     height: 280px
 }
@@ -2814,7 +2814,7 @@ input::-ms-clear {
 }
 
 #feedback #fb-text {
-    background: url(//www.lemon.com/bfs/static/jinkela/space/asserts/fb-dialog.png) no-repeat;
+    background: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/fb-dialog.png) no-repeat;
     width: 230px;
     height: 80px;
     transition: opacity .2s ease;
@@ -2838,7 +2838,7 @@ input::-ms-clear {
     position: absolute;
     display: none;
     z-index: 9;
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/user-auth.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/user-auth.png);
     background-repeat: no-repeat
 }
 
@@ -2911,7 +2911,7 @@ input::-ms-clear {
 }
 
 .user-auth-subscript.fools-vip {
-    background: url(//www.lemon.com/bfs/static/jinkela/space/asserts/fool-day.png) no-repeat;
+    background: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/fool-day.png) no-repeat;
     background-size: 100%;
     width: 20px;
     height: 20px;
@@ -2977,7 +2977,7 @@ input::-ms-clear {
     width: 24px;
     height: 24px;
     margin-right: 8px;
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/loadingS.gif);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/loadingS.gif);
     background-repeat: no-repeat
 }
 
@@ -2991,7 +2991,7 @@ input::-ms-clear {
 }
 
 #pin-wrapper .m-loading.disabled .icon {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/loading-fail.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/loading-fail.png);
     background-position: 6px
 }
 
@@ -3167,13 +3167,13 @@ input::-ms-clear {
 }
 
 #pin-wrapper .pin-layer-video.empty {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/nodata02.png);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/nodata02.png);
     background-position: 147px;
     background-repeat: no-repeat
 }
 
 #pin-wrapper .pin-layer-video.loading {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/loadTV.gif);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/loadTV.gif);
     background-repeat: no-repeat;
     background-position: 50%;
     text-indent: -9999px;
@@ -3750,7 +3750,7 @@ input::-ms-clear {
 }
 
 .article-bgimg {
-    background: #f0f2f4 url(//www.lemon.com/bfs/static/jinkela/space/asserts/video-placeholder.png) 50%;
+    background: #f0f2f4 url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/video-placeholder.png) 50%;
     background-size: cover;
     border-radius: 4px;
     display: block;
@@ -3836,7 +3836,7 @@ input::-ms-clear {
 }
 
 .icon-playlist {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/icon_playlist_line.png)
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/icon_playlist_line.png)
 }
 
 .icon-playlist, .icon-playlist-loc {
@@ -3847,7 +3847,7 @@ input::-ms-clear {
 }
 
 .icon-playlist-loc {
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/icon_playlist_loc.png)
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/icon_playlist_loc.png)
 }
 
 .icon-favlist-info {
@@ -3995,7 +3995,7 @@ input::-ms-clear {
 .space-loading-tv {
     height: 100px;
     margin-top: 10px;
-    background-image: url(//www.lemon.com/bfs/static/jinkela/space/asserts/loadTV.gif);
+    background-image: url(//lemon.shijianpeng.top/bfs/static/jinkela/space/asserts/loadTV.gif);
     background-repeat: no-repeat;
     background-position: 50%
 }

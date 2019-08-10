@@ -21,17 +21,17 @@ var videoObject = {
     // front:'frontFun',// 上一集的操作函数
     // next:'nextFun',// 下一集的操作函数
     // 广告部分开始
-    // adfront: 'http://www.lemon.com/static/adv/front.swf', // 前置广告文件路径列表
+    // adfront: 'http://lemon.shijianpeng.top/static/adv/front.swf', // 前置广告文件路径列表
     // adfronttime: '15',
     // adfrontlink: '',
-    // adpause: 'http://www.lemon.com/static/adv/pause.swf',
+    // adpause: 'http://lemon.shijianpeng.top/static/adv/pause.swf',
     // adpausetime: '5',
     // adpauselink: '',
-    // adinsert: 'http://www.lemon.com/static/adv/insert.swf',
+    // adinsert: 'http://lemon.shijianpeng.top/static/adv/insert.swf',
     // adinserttime: '10',
     // adinsertlink: '',
     // inserttime: '10',
-    // adend: 'http://www.lemon.com/static/adv/end.swf',
+    // adend: 'http://lemon.shijianpeng.top/static/adv/end.swf',
     // adendtime: '15',
     // adendlink: '',
     // // 广告部分结束
@@ -115,7 +115,7 @@ function changeVideo(videoUrl, picUrl) {
         loaded: 'loadedHandler', // 当播放器加载后执行的函数
         video: videoUrl,
         poster: picUrl, // 封面图片
-        // advertisements: 'http://www.lemon.com/restful/ad.json',
+        // advertisements: 'http://lemon.shijianpeng.top/restful/ad.json',
     }
     //判断是需要重新加载播放器还是直接换新地址
     if (player.playerType == 'html5video') {

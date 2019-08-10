@@ -10,7 +10,7 @@ $("#registerView").click(function () {
         area: ['400px', '400px'],
         resize: false,
         move: false,
-        content: ['http://www.lemon.com/register.html', 'no'],
+        content: ['http://lemon.shijianpeng.top/register.html', 'no'],
         yes: function (index, layero) {
 //                layero.find('#draftClue').submit();
         }
@@ -20,7 +20,7 @@ $("#registerView").click(function () {
 $("#loginOut").click(function () {
     layer.confirm('确定退出登陆吗?', {icon: 3, title: '提示'}, function (index) {
         $.ajax({
-            url: "http://www.lemon.com/u/user/logout?_method=DELETE",
+            url: "http://lemon.shijianpeng.top/u/user/logout?_method=DELETE",
             type: "POST",
             dataType: "json",
             beforeSend: function () {
@@ -51,7 +51,7 @@ function openLoginWindow() {
         area: ['400px', '260px'],
         resize: false,
         move: false,
-        content: ['http://www.lemon.com/login.html', 'no'],
+        content: ['http://lemon.shijianpeng.top/login.html', 'no'],
         yes: function (index, layero) {
 //                layero.find('#draftClue').submit();
         }
@@ -117,7 +117,7 @@ function initLoginUserForPlay() {
 function checkStatus() {
     // layui.use('layer', function () {
         $.ajax({
-            url: "http://www.lemon.com/u/user/checkStatus",
+            url: "http://lemon.shijianpeng.top/u/user/checkStatus",
             type: "GET",
             dataType: "json",
             beforeSend: function () {

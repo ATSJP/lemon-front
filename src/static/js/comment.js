@@ -7,7 +7,7 @@ $(".comment-submit").click(function () {
         return
     }
     $.ajax({
-        url: "http://www.lemon.com/a/remark?_method=POST",
+        url: "http://lemon.shijianpeng.top/a/remark?_method=POST",
         type: "POST",
         data: {
             "remarkContext": remarkContext,
@@ -25,7 +25,7 @@ $(".comment-submit").click(function () {
                     "                                     data-index=\"0\">\n" +
                     "                                    <div class=\"con \">\n" +
                     "                                        <div class=\"user\">\n" +
-                    "                                            <a data-usercard-mid=\"\" href=\"/www.lemon.com/userInfo.html?uid=" + uid + "\" target=\"_blank\"\n" +
+                    "                                            <a data-usercard-mid=\"\" href=\"/lemon.shijianpeng.top/userInfo.html?uid=" + uid + "\" target=\"_blank\"\n" +
                     "                                            class=\"name vip-red-name\">" + name + "</a>\n" +
                     "                                        </div>\n" +
                     "                                        <p class=\"text\">" + remarkContext + "</p>\n" +

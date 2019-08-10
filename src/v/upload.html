@@ -127,7 +127,7 @@
 <script>
     function loadParentCate(form) {
         $.ajax({
-            url: "http://www.lemon.com/a/category/tree",
+            url: "http://lemon.shijianpeng.top/a/category/tree",
             type: "GET",
             dataType: "json",
             success: function (data) {
@@ -159,7 +159,7 @@
 
         form.on('select(parentCateFilter)', function (select) {
             $.ajax({
-                url: "http://www.lemon.com/a/category/tree",
+                url: "http://lemon.shijianpeng.top/a/category/tree",
                 type: "GET",
                 dataType: "json",
                 success: function (data) {
@@ -195,7 +195,7 @@
             // };
 
             $.ajax({
-                url: 'http://www.lemon.com/a/video',
+                url: 'http://lemon.shijianpeng.top/a/video',
                 type: 'POST',
                 data: sendJson,
                 dataType: 'json',

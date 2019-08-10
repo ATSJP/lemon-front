@@ -42,7 +42,7 @@ layui.use(['form'], function () {
         };
 
         $.ajax({
-            url: 'http://www.lemon.com/u/user/login',
+            url: 'http://lemon.shijianpeng.top/u/user/login',
             type: 'POST',
             data: sendJson,
             dataType: 'json',

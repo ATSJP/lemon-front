@@ -128,7 +128,7 @@
             chunked: false,
             // 如果要分片，分多大一片？ 默认大小为5M.
             chunkSize: 512 * 1024,
-            server: 'http://www.lemon.com/a/file/upload',
+            server: 'http://lemon.shijianpeng.top/a/file/upload',
             compress: {
                 width: 1600,
                 height: 1600,

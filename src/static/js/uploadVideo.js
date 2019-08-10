@@ -7,7 +7,7 @@
         var uploaderVideo = WebUploader.create({
             resize: false, // 不压缩image
             swf: '../plugin/webupload/swf/expressInstall.swf', // swf文件路径
-            server: 'http://www.lemon.com/a/file/upload', // 文件接收服务端。
+            server: 'http://lemon.shijianpeng.top/a/file/upload', // 文件接收服务端。
             formData: {
                 "linkType": 0,
                 "linkId": $("input[name=videoId]").val(),

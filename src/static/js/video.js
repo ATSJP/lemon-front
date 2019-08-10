@@ -6,7 +6,7 @@ function ajaxGetIndexVideoRank() {
      * 播放率
      */
     $.ajax({
-        url: "http://www.lemon.com/a/video/getVideoOrderRank/0",
+        url: "http://lemon.shijianpeng.top/a/video/getVideoOrderRank/0",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -16,7 +16,7 @@ function ajaxGetIndexVideoRank() {
                 $.each(videoDTOList, function (index, value) {
                     var videoDetailDTO = value.videoDetailDTO;
                     html += " <li class=\"item\">\n" +
-                        "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + (index + 1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <a href=\"http://lemon.shijianpeng.top/v/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + (index + 1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
                         "                        </li>";
                 })
                 $("#playNumRank").append(html);
@@ -29,7 +29,7 @@ function ajaxGetIndexVideoRank() {
      * 评价数
      */
     $.ajax({
-        url: "http://www.lemon.com/a/video/getVideoOrderRank/1",
+        url: "http://lemon.shijianpeng.top/a/video/getVideoOrderRank/1",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -39,7 +39,7 @@ function ajaxGetIndexVideoRank() {
                 $.each(videoDTOList, function (index, value) {
                     var videoDetailDTO = value.videoDetailDTO;
                     html += " <li class=\"item\">\n" +
-                        "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + (index + 1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <a href=\"http://lemon.shijianpeng.top/v/play.html?playId=" + videoDetailDTO.videoId + "\"><i class=\"n2\">" + (index + 1) + "</i>" + videoDetailDTO.videoName + "</a>\n" +
                         "                        </li>";
                 })
                 $("#remarkNumRank").append(html);
@@ -57,7 +57,7 @@ function ajaxGetIndexVideoRank() {
  */
 function ajaxGetVideoList(categoryId, pageIndex, view) {
     $.ajax({
-        url: "http://www.lemon.com/a/video/getVideoList/" + categoryId + "/" + pageIndex + "/8",
+        url: "http://lemon.shijianpeng.top/a/video/getVideoList/" + categoryId + "/" + pageIndex + "/8",
         type: "GET",
         dataType: "json",
         beforeSend: function () {
@@ -71,14 +71,14 @@ function ajaxGetVideoList(categoryId, pageIndex, view) {
                     var bizFileDTOList = value.bizFileDTOList
 
                     html += "<li class=\"item\">\n" +
-                        "                        <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
-                        "                            <img src=\"http://www.lemon.com/image/" + bizFileDTOList[0].fileName + bizFileDTOList[0].fileSuffix + "\"\n" +
+                        "                        <a href=\"http://lemon.shijianpeng.top/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
+                        "                            <img src=\"http://lemon.shijianpeng.top/image/" + bizFileDTOList[0].fileName + bizFileDTOList[0].fileSuffix + "\"\n" +
                         "                                 alt=\"#\">\n" +
                         "                            <span class=\"mask\"></span>\n" +
                         "                            <span class=\"time\">" + videoDetailDTO.time + "</span>\n" +
                         "                        </a>\n" +
                         "                        <div class=\"img-info\">\n" +
-                        "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <a href=\"http://lemon.shijianpeng.top/v/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
                         "                            <div class=\"btm\">\n" +
                         "                                <div class=\"user\"><i></i>" + videoDetailDTO.userName + "</div>\n" +
                         "                                <div class=\"online\"><i></i>" + videoDetailDTO.playNum + "</div>\n" +
@@ -97,7 +97,7 @@ function ajaxGetVideoList(categoryId, pageIndex, view) {
  */
 function ajaxGetCateList() {
     $.ajax({
-        url: "http://www.lemon.com/a/category/tree",
+        url: "http://lemon.shijianpeng.top/a/category/tree",
         type: "GET",
         dataType: "json",
         success: function (data) {
@@ -109,7 +109,7 @@ function ajaxGetCateList() {
                 var headEnd = "</li>";
                 var bodyEnd = "</ul>";
                 $.each(value.subCategoryDTOList, function (index, value) {
-                    body += "<li><a href=\"http://www.lemon.com/v/list.html?categoryId=" + value.categoryId + "\"><em>" + value.categoryName + "<i></i></em></a></li>";
+                    body += "<li><a href=\"http://lemon.shijianpeng.top/v/list.html?categoryId=" + value.categoryId + "\"><em>" + value.categoryName + "<i></i></em></a></li>";
                 });
                 html1 += head + body + bodyEnd + headEnd;
                 toolbar += "<a href=\"#\">" + value.categoryName + "</a>";
@@ -161,7 +161,7 @@ function checkTimeOut(video, pic) {//后置广告倒计时
  */
 function ajaxGetVideoInfo(videoId) {
     $.ajax({
-        url: "http://www.lemon.com/a/video/get",
+        url: "http://lemon.shijianpeng.top/a/video/get",
         type: "GET",
         data: {
             "videoId": videoId,
@@ -182,18 +182,18 @@ function ajaxGetVideoInfo(videoId) {
                 $(".view").html(videoDetailDTO.playNum + "播放 · ");
                 $(".dm").html(remarkDTO.length + "弹幕");
                 $(".username").html(videoDetailDTO.userName);
-                $(".username").attr('href', '//www.lemon.com/userInfo.html?uid=' + videoDetailDTO.userId + "&name=" + videoDetailDTO.userName);
+                $(".username").attr('href', '//lemon.shijianpeng.top/userInfo.html?uid=' + videoDetailDTO.userId + "&name=" + videoDetailDTO.userName);
 
                 // 分类
-                $("#parentCate").html(categoryDTO.categoryName).attr('href', '//www.lemon.com/v/list.html?cid=' + categoryDTO.categoryId);
-                $("#childCate").html(categoryDTO.subCategoryDTOList[0].categoryName).attr('href', '//www.lemon.com/v/list.html?cid=' + categoryDTO.subCategoryDTOList[0].categoryId);
+                $("#parentCate").html(categoryDTO.categoryName).attr('href', '//lemon.shijianpeng.top/v/list.html?cid=' + categoryDTO.categoryId);
+                $("#childCate").html(categoryDTO.subCategoryDTOList[0].categoryName).attr('href', '//lemon.shijianpeng.top/v/list.html?cid=' + categoryDTO.subCategoryDTOList[0].categoryId);
 
                 $("#createTime").html(videoDetailDTO.createTime);
                 $(".open").html(videoDetailDTO.videoContext);
 
                 // 视频
-                var video = "http://www.lemon.com/video/";
-                var pic = "http://www.lemon.com/image/";
+                var video = "http://lemon.shijianpeng.top/video/";
+                var pic = "http://lemon.shijianpeng.top/image/";
                 $.each(bizFileDTOList, function (index, value) {
                     if (value.linkType === 0) {
                         video += value.fileName + value.fileSuffix;
@@ -206,7 +206,7 @@ function ajaxGetVideoInfo(videoId) {
                 // 会员免广告，检测
                 var isNeedAdv = true;
                 $.ajax({
-                    url: "http://www.lemon.com/u/user",
+                    url: "http://lemon.shijianpeng.top/u/user",
                     type: "GET",
                     data: {
                         "uid": getCookie("uid")
@@ -224,7 +224,7 @@ function ajaxGetVideoInfo(videoId) {
 
                 if (isNeedAdv) {
                     // 播放广告
-                    newVideo("http://www.lemon.com/adv/test.mp4", "http://www.lemon.com/static/adv/adv.png");
+                    newVideo("http://lemon.shijianpeng.top/adv/test.mp4", "http://lemon.shijianpeng.top/static/adv/adv.png");
                     setTime()
                     checkTimeOut(video, "")
                 } else {
@@ -252,7 +252,7 @@ function ajaxGetVideoInfo(videoId) {
                         "                                     data-index=\"0\">\n" +
                         "                                    <div class=\"con \">\n" +
                         "                                        <div class=\"user\">\n" +
-                        "                                            <a data-usercard-mid=\"\" href=\"/www.lemon.com/userInfo.html?uid=" + value.loginId + "\" target=\"_blank\"\n" +
+                        "                                            <a data-usercard-mid=\"\" href=\"/lemon.shijianpeng.top/userInfo.html?uid=" + value.loginId + "\" target=\"_blank\"\n" +
                         "                                            class=\"name vip-red-name\">" + value.loginName + "</a>\n" +
                         "                                        </div>\n" +
                         "                                        <p class=\"text\">" + value.remarkContext + "</p>\n" +
@@ -269,7 +269,7 @@ function ajaxGetVideoInfo(videoId) {
                                 "                                     data-index=\"0\">\n" +
                                 "                                    <div class=\"con \">\n" +
                                 "                                        <div class=\"user\">\n" +
-                                "                                            <a data-usercard-mid=\"\" href=\"/www.lemon.com/userInfo.html?uid=" + value.loginId + "\" target=\"_blank\"\n" +
+                                "                                            <a data-usercard-mid=\"\" href=\"/lemon.shijianpeng.top/userInfo.html?uid=" + value.loginId + "\" target=\"_blank\"\n" +
                                 "                                            class=\"name vip-red-name\">" + value.loginName + "</a>\n" +
                                 "                                        </div>\n" +
                                 "                                        <p class=\"text\">" + value.remarkContext + "</p>\n" +
@@ -318,7 +318,7 @@ function ajaxGetVideoInfo(videoId) {
  */
 function ajaxPutUp(videoId) {
     var color = $(".van-icon-videodetails_like").css("color");
-    var url = "http://www.lemon.com/a/up?";
+    var url = "http://lemon.shijianpeng.top/a/up?";
     if (color === 'rgb(255, 0, 0)') {
         // 红色
         url += "_method=DELETE";
@@ -361,7 +361,7 @@ function ajaxPutUp(videoId) {
  */
 function ajaxPutCollect(videoId) {
     var color = $(".van-icon-videodetails_collec").css("color");
-    var url = "http://www.lemon.com/a/collect?";
+    var url = "http://lemon.shijianpeng.top/a/collect?";
     if (color === 'rgb(255, 0, 0)') {
         // 红色
         url += "_method=DELETE";
@@ -399,7 +399,7 @@ function ajaxPutCollect(videoId) {
 
 function ajaxPlayRecord() {
     $.ajax({
-        url: "http://www.lemon.com/a/video/play",
+        url: "http://lemon.shijianpeng.top/a/video/play",
         type: "POST",
         data: {
             "videoId": getQueryString("playId"),
@@ -428,14 +428,14 @@ function ajaxPlayRecord() {
                         }
                     })
                     html += "<li class=\"item\">\n" +
-                        "                        <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
-                        "                            <img src=\"http://www.lemon.com/image/" + picFile.fileName + picFile.fileSuffix + "\"\n" +
+                        "                        <a href=\"http://lemon.shijianpeng.top/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
+                        "                            <img src=\"http://lemon.shijianpeng.top/image/" + picFile.fileName + picFile.fileSuffix + "\"\n" +
                         "                                 alt=\"#\">\n" +
                         "                            <span class=\"mask\"></span>\n" +
                         "                            <span class=\"time\">" + videoDetailDTO.time + "</span>\n" +
                         "                        </a>\n" +
                         "                        <div class=\"img-info\">\n" +
-                        "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
+                        "                            <a href=\"http://lemon.shijianpeng.top/v/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
                         "                            <div class=\"btm\">\n" +
                         "                                <div class=\"user\"><i></i>" + videoDetailDTO.userName + "</div>\n" +
                         "                                <div class=\"online\"><i></i>" + videoDetailDTO.playNum + "</div>\n" +
@@ -459,7 +459,7 @@ $(".post").click(function () {
         resize: true,
         area: ['900px', '600px'],
         move: true,
-        content: ['http://www.lemon.com/v/upload.html', 'no'],
+        content: ['http://lemon.shijianpeng.top/v/upload.html', 'no'],
         yes: function (index, layero) {
 //                layero.find('#draftClue').submit();
         }
@@ -471,7 +471,7 @@ $(".post").click(function () {
  */
 function ajaxSearch(keyWord) {
     $.ajax({
-        url: "http://www.lemon.com/a/video/search",
+        url: "http://lemon.shijianpeng.top/a/video/search",
         type: "GET",
         data: {
             "keyWord": keyWord
@@ -494,14 +494,14 @@ function ajaxSearch(keyWord) {
                             }
                         })
                         html += "<li class=\"item\">\n" +
-                            "                        <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
-                            "                            <img src=\"http://www.lemon.com/image/" + picFile.fileName + picFile.fileSuffix + "\"\n" +
+                            "                        <a href=\"http://lemon.shijianpeng.top/v/play.html?playId=" + videoDetailDTO.videoId + "\" target='_blank' class=\"img-link\">\n" +
+                            "                            <img src=\"http://lemon.shijianpeng.top/image/" + picFile.fileName + picFile.fileSuffix + "\"\n" +
                             "                                 alt=\"#\">\n" +
                             "                            <span class=\"mask\"></span>\n" +
                             "                            <span class=\"time\">" + videoDetailDTO.time + "</span>\n" +
                             "                        </a>\n" +
                             "                        <div class=\"img-info\">\n" +
-                            "                            <a href=\"http://www.lemon.com/v/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
+                            "                            <a href=\"http://lemon.shijianpeng.top/v/play.html?playId=" + videoDetailDTO.videoId + "\">" + videoDetailDTO.videoName + "</a>\n" +
                             "                            <div class=\"btm\">\n" +
                             "                                <div class=\"user\"><i></i>" + videoDetailDTO.userName + "</div>\n" +
                             "                                <div class=\"online\"><i></i>" + videoDetailDTO.playNum + "</div>\n" +

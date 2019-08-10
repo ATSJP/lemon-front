@@ -87,7 +87,7 @@
     function getUserInfo() {
         $("input[name=uid]").val(getCookie("uid"));
         $.ajax({
-            url: 'http://www.lemon.com/u/user',
+            url: 'http://lemon.shijianpeng.top/u/user',
             type: 'GET',
             data: {
                 "uid": getCookie("uid")
@@ -164,7 +164,7 @@
         //监听提交
         form.on('submit(modify)', function (data) {
             $.ajax({
-                url: 'http://www.lemon.com/u/user?_method=PUT',
+                url: 'http://lemon.shijianpeng.top/u/user?_method=PUT',
                 type: 'POST',
                 data: data.field,
                 dataType: 'json',

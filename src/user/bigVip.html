@@ -71,7 +71,7 @@
     var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 
     $(".layui-btn").click(function () {
-        parent.window.open("http://www.lemon.com/a/toPay?prodId=" + checkType + "&uid=" + getCookie("uid"));
+        parent.window.open("http://lemon.shijianpeng.top/a/toPay?prodId=" + checkType + "&uid=" + getCookie("uid"));
         parent.layer.close(index);
         // 墨绿深蓝风
         parent.layer.alert('请至支付宝页面完成支付后，刷新此页面', {
