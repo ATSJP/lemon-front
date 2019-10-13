@@ -1,6 +1,6 @@
 $(".comment-submit").click(function () {
     var remarkContext = $(".ipt-txt").val();
-    var uid = getCookie("uid");
+    var uid = getUid();
     var name = getCookie("name");
     if (remarkContext === '' || remarkContext.length > 200) {
         layer.alert("请输入0-200字", {icon: 2});

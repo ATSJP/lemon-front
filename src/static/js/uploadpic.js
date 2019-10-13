@@ -118,7 +118,7 @@
             formData: {
                 "linkType": 1,
                 "linkId": $("input[name=videoId]").val(),
-                "uid": getCookie("uid")
+                "uid": getUid()
             },
             // 指定Drag And Drop拖拽的容器，如果不指定，则不启动。
             dnd: '#uploader .queueList',

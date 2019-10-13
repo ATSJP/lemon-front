@@ -11,7 +11,7 @@
             formData: {
                 "linkType": 0,
                 "linkId": $("input[name=videoId]").val(),
-                "uid": getCookie("uid")
+                "uid": getUid()
             },
             pick: '#picker', // 选择文件的按钮。可选
             // chunked: true, // 是否要分片处理大文件上传

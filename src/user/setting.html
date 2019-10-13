@@ -85,12 +85,12 @@
 <script src="../static/js/base.js"></script>
 <script>
     function getUserInfo() {
-        $("input[name=uid]").val(getCookie("uid"));
+        $("input[name=uid]").val(getUid());
         $.ajax({
             url: 'http://lemon.shijianpeng.top/u/user',
             type: 'GET',
             data: {
-                "uid": getCookie("uid")
+                "uid": getUid()
             },
             async: false,
             dataType: 'json',

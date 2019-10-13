@@ -165,7 +165,7 @@ function ajaxGetVideoInfo(videoId) {
         type: "GET",
         data: {
             "videoId": videoId,
-            "uid": getCookie("uid")
+            "uid": getUid()
         },
         dataType: "json",
         success: function (data) {
@@ -209,7 +209,7 @@ function ajaxGetVideoInfo(videoId) {
                     url: "http://lemon.shijianpeng.top/u/user",
                     type: "GET",
                     data: {
-                        "uid": getCookie("uid")
+                        "uid": getUid()
                     },
                     async: false,
                     dataType: "json",
@@ -330,7 +330,7 @@ function ajaxPutUp(videoId) {
         type: "POST",
         data: {
             "videoId": videoId,
-            "uid": getCookie("uid")
+            "uid": getUid()
         },
         dataType: "json",
         beforeSend: function () {
@@ -373,7 +373,7 @@ function ajaxPutCollect(videoId) {
         type: "POST",
         data: {
             "videoId": videoId,
-            "uid": getCookie("uid")
+            "uid": getUid()
         },
         dataType: "json",
         beforeSend: function () {
@@ -403,13 +403,10 @@ function ajaxPlayRecord() {
         type: "POST",
         data: {
             "videoId": getQueryString("playId"),
-            "uid": getCookie("uid"),
+            "uid": getUid(),
             "sid": getCookie("sid"),
         },
         dataType: "json",
-        beforeSend: function () {
-            layer.load(3, {time: 1 * 1000});
-        },
         success: function (data) {
             if (data.code === 0) {
                 var html = "";

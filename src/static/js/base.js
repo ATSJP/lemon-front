@@ -25,6 +25,11 @@ function getCookie(name) {
     return "";
 }
 
+function getUid() {
+    var uid = getCookie("uid");
+    // return uid === '' ? -1 : uid;
+    return uid;
+}
 
 // 按下ESC按钮关闭弹层
 $('body',document).on('keyup', function (e) {
