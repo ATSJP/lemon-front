@@ -33,7 +33,7 @@ function ajaxGetUserVideo(pageIndex, uid) {
             if (data.code === 0) {
                 var html = "";
                 if (data.videoDTOList.length === 0) {
-                    $(".sec-empty-hint").show();
+                    $("#my_video").show();
                     return
                 }
                 $.each(data.videoDTOList, function (index, value) {
@@ -81,7 +81,7 @@ function ajaxGetCollectVideo(pageIndex, uid) {
             if (data.code === 0) {
                 var html = "";
                 if (data.videoDTOList.length === 0) {
-                    $(".sec-empty-hint").show();
+                    $("#collect_video").show();
                     return
                 }
                 $(".n-num").text(data.videoDTOList.length);

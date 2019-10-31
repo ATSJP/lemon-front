@@ -101,7 +101,7 @@
                     <div id="picker">选择文件</div>
                 </div>
                 <div class="layui-input-inline">
-                    <div id="ctlBtn" class="layui-btn">开始上传</div>
+                    <div id="ctlBtn" class="layui-btn" title="视频最大为1G">开始上传</div>
                 </div>
             </div>
         </div>
@@ -216,7 +216,7 @@
                         uploader.refresh()
                         uploaderVideo.refresh()
                     } else {
-                        layer.msg(data.msg);
+                        dealReponse(data);
                     }
                 },
                 error: function () {

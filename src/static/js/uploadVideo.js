@@ -29,8 +29,8 @@
             fileVal: 'files',
             fileNumLimit: 1,
             // 验证文件总大小是否超出限制, 超出则不允许加入队列。
-            fileSizeLimit: 512 * 1024 * 1024,    // 512 M
-            fileSingleSizeLimit: 512 * 1024 * 1024   // 512 M
+            fileSizeLimit: 1024 * 1024 * 1024,    // 1024 M
+            fileSingleSizeLimit: 1024 * 1024 * 1024   // 1024 M
         });
         uploaderVideo.on('ready', function () {
             window.uploaderVideo = uploaderVideo;
@@ -58,7 +58,7 @@
         uploaderVideo.onError = function (code) {
             clearTimeout(timer1);
             timer1 = setTimeout(function () {
-                layer.msg('已存在一个视频');
+                layer.msg('上传大小受限');
             }, 250);
         }
         // 文件上传过程中创建进度条实时显示

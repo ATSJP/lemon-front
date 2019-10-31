@@ -32,9 +32,17 @@ function getUid() {
 }
 
 // 按下ESC按钮关闭弹层
-$('body',document).on('keyup', function (e) {
+$('body', document).on('keyup', function (e) {
     if (e.which === 27) {
         // console.log("按下esc");
         layer.closeAll();
     }
 });
+
+function dealReponse(data) {
+    if (data.code === 4) {
+        layer.msg("请先登陆！");
+        return
+    }
+    layer.msg(data.msg);
+}
