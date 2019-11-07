@@ -115,7 +115,8 @@ function initLoginUserForPlay() {
 }
 
 function checkStatus() {
-    // layui.use('layer', function () {
+    const uid = getUid();
+    if(uid){
         $.ajax({
             url: "http://lemon.shijianpeng.top/u/user/checkStatus",
             type: "GET",
@@ -134,5 +135,6 @@ function checkStatus() {
                 layer.closeAll('loading');
             }
         })
-    // });
+    }
+    initLoginUser();
 }
